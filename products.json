@@ -1,0 +1,31 @@
+[
+  {
+    "data": {
+      "product": "Hiut Denim Co. Jeans",
+      "description": "Hiut Denim Co. is a company that makes jeans. They focus on making one thing well, and they believe in buying less and buying better. Their jeans are made to order, which means that you can choose the exact style and fit that you want. They also use organic denim and Japanese selvedge denim in their jeans.",
+      "targetAudience": [
+        {
+          "who": "Eco-conscious shoppers: Those who prioritize ethical and sustainable fashion choices, appreciate organic materials and reduced environmental impact.",
+          "whyYours": "best quality"
+        },
+        {
+          "who": "Individuals seeking quality and longevity: People looking for well-made denim that will last for years, justifying a higher price point. They appreciate timeless styles over fast fashion trends.",
+          "whyYours": "best quality"
+        },
+        {
+          "who": "Those seeking a connection to history and craftsmanship: Individuals who resonate with the brand's story of revitalizing a town's lost denim-making tradition and who appreciate the artisanal touch.",
+          "whyYours": "best quality"
+        }
+      ],
+      "additionalDetails": {}
+    },
+    "metadata": {
+      "version": "1.0",
+      "lastModified": "2024-02-12",
+      "url": "https://hiutdenim.co.uk/",
+      "backupUrl": "",
+      "Shipping location": "Worldwide",
+      "Price range": "Premium"
+    }
+  }
+]
