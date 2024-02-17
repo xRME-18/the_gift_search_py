@@ -1,3 +1,4 @@
+import json
 from langchain_google_genai import GoogleGenerativeAI
 
 
@@ -115,4 +116,21 @@ llm = GoogleGenerativeAI(model="gemini-pro")
 
 result1 = llm.invoke(LLM_promptProductDescription)
 result2 = llm.invoke(LLM_promptTargetAudiance)
-print(result1 + "\n\n" + result2)
+
+# convert string back to json
+result1 = json.loads(result1)
+result2 = json.loads(result2)
+
+# verify if its correct foramt and keep repeting until its correct
+
+final_data = {}
+
+final_data["data"] = {
+    "product": result1["product"],
+    "description": result1["description"],
+    "targetAudience": result2["targetAudience"],
+}
+
+print(json.dumps(final_data, indent=2))
+
+# print(result1 + "\n\n" + result2)
