@@ -1,4 +1,5 @@
 import json
+import datetime
 from langchain_google_genai import GoogleGenerativeAI
 
 example_prompt = """
@@ -110,7 +111,7 @@ def generateJSONForEmbedding(product_detail_json):
     # remove url key parameter from product_detail_json
     # convert to json
     # product_detail_json = json.loads(product_detail_json)
-
+    productURL = product_detail_json["url"]
     product_detail_json.pop("url", None)
     # print(product_detail_json)
     # print(type(product_detail_json))
@@ -132,6 +133,8 @@ def generateJSONForEmbedding(product_detail_json):
             print(result1)
             print("\n\n")
             result1 = json.loads(result1)
+            description = result1["description"]
+            product = result1["product"]
             break
         except json.JSONDecodeError:
             print("JSON is not in the correct format.")
@@ -146,6 +149,15 @@ def generateJSONForEmbedding(product_detail_json):
             print(result2)
             print("\n\n")
             result2 = json.loads(result2)
+            targetAudiance = result2["targetAudience"]
+            targetAudience = result2["targetAudience"]
+            for audience in targetAudience:
+                targetAudienceObj = {
+                    "targetAudience": audience["targetAudience"],
+                    "useCase": audience["useCase"],
+                }
+                # Do something with targetAudienceObj, such as appending it to a list or processing it further
+                # Example: targetAudienceList.append(targetAudienceObj)
             break
         except json.JSONDecodeError:
             print("JSON is not in the correct format.")
@@ -160,6 +172,11 @@ def generateJSONForEmbedding(product_detail_json):
         "product": result1["product"],
         "description": result1["description"],
         "targetAudience": result2["targetAudience"],
+    }
+    final_data["metadata"] = {
+        "url": productURL,
+        "dateCreated": datetime.datetime.now().isoformat(),
+        "productId": product_detail_json["productId"],
     }
 
     return final_data
