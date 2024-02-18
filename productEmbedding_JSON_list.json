@@ -1,0 +1,22 @@
+[
+  {
+    "data": {
+      "product": "Pendant Ceramic Lamp",
+      "description": "This handmade pendant ceramic lamp features a unique printed decoration of green leaves, creating a stunning and eye-catching light fixture. Crafted from high-quality clay, it boasts a height of 17.7 inches and a diameter of 7.9 inches, making it an ideal lighting solution for living rooms, offices, and other indoor spaces. Its versatile design allows for various stacking options, offering endless possibilities for customization. The lamp's forest green, white, mint, burgundy, and orange color palette adds a touch of sophistication and vibrancy to any decor.",
+      "targetAudience": [
+        {
+          "targetAudience": "Home decorators with a taste for unique and handmade lighting fixtures",
+          "useCase": "Adding a touch of bohemian flair to their living room or office space"
+        },
+        {
+          "targetAudience": "Art collectors interested in contemporary ceramic pieces",
+          "useCase": "Displaying the lamp as a functional art object in their home or studio"
+        },
+        {
+          "targetAudience": "Individuals looking for a statement piece for their home",
+          "useCase": "Creating a focal point in their living room or dining area with the lamp's striking design"
+        }
+      ]
+    }
+  }
+]
