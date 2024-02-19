@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-url = "https://www.etsy.com/c/home-and-living/home-decor?ref=cat_breadcrumb&plkey=3143cfbf116da656d57ba0de96febe84c9de0ffa%3A956382765&listing_id=956382765&listing_slug=romantic-couple-personalized-resin-tree&explicit=1"
+url = "https://www.etsy.com/c/home-and-living/home-decor?ref=pagination&plkey=3143cfbf116da656d57ba0de96febe84c9de0ffa%3A956382765&listing_id=956382765&listing_slug=romantic-couple-personalized-resin-tree&explicit=1&page=3"
 
 # HEADERS = {
 #     "User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
@@ -37,5 +37,5 @@ print(len(product_listings_links))
 
 product_links = {"links": product_listings_links}
 
-with open("product_links.json", "w") as file:
+with open("product_links.json3", "w") as file:
     json.dump(product_links, file)

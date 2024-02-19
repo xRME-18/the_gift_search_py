@@ -133,11 +133,13 @@ def generateJSONForEmbedding(product_detail_json):
             print(result1)
             print("\n\n")
             result1 = json.loads(result1)
-            description = result1["description"]
-            product = result1["product"]
+            if "product" not in result1 or "description" not in result1:
+                raise ValueError("product and description are required")
             break
         except json.JSONDecodeError:
             print("JSON is not in the correct format.")
+        except ValueError as e:
+            print(e)
     else:
         raise ValueError("Converting to JSON failed")
 
@@ -149,18 +151,15 @@ def generateJSONForEmbedding(product_detail_json):
             print(result2)
             print("\n\n")
             result2 = json.loads(result2)
-            targetAudiance = result2["targetAudience"]
             targetAudience = result2["targetAudience"]
             for audience in targetAudience:
-                targetAudienceObj = {
-                    "targetAudience": audience["targetAudience"],
-                    "useCase": audience["useCase"],
-                }
-                # Do something with targetAudienceObj, such as appending it to a list or processing it further
-                # Example: targetAudienceList.append(targetAudienceObj)
+                if "targetAudience" not in audience or "useCase" not in audience:
+                    raise ValueError("targetAudience and useCase are required")
             break
         except json.JSONDecodeError:
             print("JSON is not in the correct format.")
+        except ValueError as e:
+            print(e)
     else:
         raise ValueError("Converting to JSON failed")
 

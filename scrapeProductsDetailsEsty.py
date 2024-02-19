@@ -8,12 +8,12 @@ from utils import generateRandomStringId
 
 product_links = {"links": []}
 # commented so as not to make requests accidentally
-# with open("product_links.json", "r") as file:
-#     links = json.load(file)
-#     product_links["links"] = links["links"]
+with open("product_links3.json", "r") as file:
+    links = json.load(file)
+    product_links["links"] = links["links"]
 
 links = product_links["links"]
-link = "https://www.etsy.com/in-en/listing/999136086/pendant-ceramic-lamp-hanging-lampshade?click_key=325f12948fc651e9fc141aa7ea2fecee40251e0a:999136086&click_sum=62331cd9&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=Pendant+Ceramic+Lamp,+Hanging+Ceiling+Lamp,+Handmade+Design,Printed+Decoration+of+Green+Leave&etp=1&search_preloaded_img=1"
+# link = "https://www.etsy.com/in-en/listing/999136086/pendant-ceramic-lamp-hanging-lampshade?click_key=325f12948fc651e9fc141aa7ea2fecee40251e0a:999136086&click_sum=62331cd9&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=Pendant+Ceramic+Lamp,+Hanging+Ceiling+Lamp,+Handmade+Design,Printed+Decoration+of+Green+Leave&etp=1&search_preloaded_img=1"
 
 all_products = []
 
@@ -58,7 +58,7 @@ for index, link in enumerate(links):
 
 
 # Write the product details to a JSON file
-with open("product_details_list.json", "w") as file:
+with open("product_details_list3.json", "w") as file:
     json.dump(all_products, file)
 
 # with open("product_details.txt", "w") as file:

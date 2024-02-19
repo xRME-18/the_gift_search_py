@@ -6,7 +6,7 @@ from listingGenerator import generateJSONForEmbedding
 def createEmbeddings():
     # load json file
     product_details = None
-    with open("product_details_list.json", "r") as file:
+    with open("product_details_list1.json", "r") as file:
         product_details = json.load(file)
     # product_details = [product_details[0]]
     # print(product_details)
@@ -19,7 +19,7 @@ def createEmbeddings():
         productEmbedding_JSON_list.append(productEmbedding_JSON)
         print("finished product: ", i)
 
-    with open("productEmbedding_JSON_list.json", "w") as file:
+    with open("productEmbedding_JSON_list1.json", "w") as file:
         json.dump(productEmbedding_JSON_list, file)
 
 
