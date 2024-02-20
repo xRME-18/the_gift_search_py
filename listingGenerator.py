@@ -108,15 +108,8 @@ fill in the given format
 
 
 def generateJSONForEmbedding(product_detail_json):
-    # remove url key parameter from product_detail_json
-    # convert to json
-    # product_detail_json = json.loads(product_detail_json)
     productURL = product_detail_json["url"]
     product_detail_json.pop("url", None)
-    # print(product_detail_json)
-    # print(type(product_detail_json))
-
-    # return product_detail_json
 
     json_string = str(product_detail_json)
 
@@ -151,6 +144,8 @@ def generateJSONForEmbedding(product_detail_json):
             print(result2)
             print("\n\n")
             result2 = json.loads(result2)
+            if "targetAudience" not in result2:
+                raise ValueError("targetAudience is required")
             targetAudience = result2["targetAudience"]
             for audience in targetAudience:
                 if "targetAudience" not in audience or "useCase" not in audience:
