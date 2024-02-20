@@ -34,5 +34,5 @@ def addEmbeddingsToPinecone(payload):
     # Index the embedding
     index.upsert(
         pineCodeVectors,
-        namespace=None,
+        namespace="trial2",
     )

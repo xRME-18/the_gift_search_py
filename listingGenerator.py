@@ -102,8 +102,55 @@ for product description analyse the given data and draw conslusions about the pr
 fill in the given format
 {
     "product": "",
-    "description": "",
+    "description": ""
 }
+"""
+
+productDescriptionPrompt2 = """
+Analyse the given text and draw conslusion for what the product is and its detailed description, do not miss any information which describes the product and do not add any additional information that was not provided
+Take time to think, this will not be seen by the user.
+Now using the generated info, fill in this json form
+{
+    "product": "",
+    "description": ""
+}
+The output should be exactly like this, and the added info should be in a human readable format, remove all the html and other tags 
+"""
+
+targetAudiancePrompt2 = """
+the above information givees you title, description and reviews of a particular product and You are a social anthropologist. To identify the ideal target audience for this product, please follow these steps:
+
+1. Product Analysis:
+Carefully examine the product's features and potential benefits. [Before starting, you'll need a detailed product description.]
+Ask yourself: What problems does this product solve? How might it improve someone's life?
+
+2. Target Audience Profiling:
+Based on the product analysis, brainstorm characteristics of individuals who would likely find this product valuable.
+Consider: Age, occupation, lifestyle, interests, pain points, and technological proficiency.
+
+3. Use Case Development:
+Outline specific scenarios where the target audience would use this product.
+Explain how the product's features directly address the needs or desires of the target audience in each scenario.
+Important: Ensure your conclusions about the target audience and use cases are logically derived from the product's core attributes.
+ 
+then fill the given json object, only usen the given information to make conslusions
+"targetAudience": [
+    {
+        "targetAudience": "",
+        "useCase": ""
+    },
+    {
+        "targetAudience": "",
+        "useCase": ""
+    },
+    {
+        "targetAudience": "",
+        "useCase": ""
+    }
+    # at lest 3 target audiance and use cases, use more if the product is widely applicable
+]
+only return the JSON object, nothing else
+
 """
 
 
@@ -113,8 +160,8 @@ def generateJSONForEmbedding(product_detail_json):
 
     json_string = str(product_detail_json)
 
-    final_promptProductDescription = json_string + productDescriptionPrompt
-    final_promptTargetAudiance = json_string + targetAudiancePrompt
+    final_promptProductDescription = json_string + productDescriptionPrompt2
+    final_promptTargetAudiance = json_string + targetAudiancePrompt2
 
     llm = GoogleGenerativeAI(model="gemini-pro")
 
@@ -158,19 +205,15 @@ def generateJSONForEmbedding(product_detail_json):
     else:
         raise ValueError("Converting to JSON failed")
 
-    # verify if its correct foramt and keep repeting until its correct
-
-    final_data = {}
-
-    final_data["data"] = {
-        "product": result1["product"],
-        "description": result1["description"],
-        "targetAudience": result2["targetAudience"],
+    return {
+        "data": {
+            "product": result1["product"],
+            "description": result1["description"],
+            "targetAudience": result2["targetAudience"],
+        },
+        "metadata": {
+            "url": productURL,
+            "dateCreated": datetime.datetime.now().isoformat(),
+            "productId": product_detail_json["productId"],
+        },
     }
-    final_data["metadata"] = {
-        "url": productURL,
-        "dateCreated": datetime.datetime.now().isoformat(),
-        "productId": product_detail_json["productId"],
-    }
-
-    return final_data

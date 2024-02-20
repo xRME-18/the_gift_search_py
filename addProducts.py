@@ -3,7 +3,8 @@ import json
 from addToPinecone import addEmbeddingsToPinecone
 
 # Specify the path to your JSON file
-file_path = "./productEmbedding_JSON_list1.json"
+
+file_path = "./finalJSON/productEmbedding_JSON_list1-secondPrompt.json"
 
 # Open the file and load the JSON data
 with open(file_path, "r") as file:
