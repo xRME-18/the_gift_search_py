@@ -4,11 +4,6 @@ import json
 
 url = "https://www.etsy.com/c/home-and-living/home-decor?ref=pagination&plkey=3143cfbf116da656d57ba0de96febe84c9de0ffa%3A956382765&listing_id=956382765&listing_slug=romantic-couple-personalized-resin-tree&explicit=1&page=3"
 
-# HEADERS = {
-#     "User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
-# }
-# response = requests.get(url, headers=HEADERS)
-
 
 response = requests.get(
     url="https://proxy.scrapeops.io/v1/",

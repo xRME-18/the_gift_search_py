@@ -60,8 +60,3 @@ for index, link in enumerate(links):
 # Write the product details to a JSON file
 with open("product_details_list3.json", "w") as file:
     json.dump(all_products, file)
-
-# with open("product_details.txt", "w") as file:
-#     file.write(f"Title: {title}\n")
-#     file.write(f"Description: {description}\n")
-#     file.write(f"Reviews: {reviews}\n")
