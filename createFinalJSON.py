@@ -3,10 +3,10 @@ import json
 from listingGenerator import generateJSONForEmbedding
 
 
-def createEmbeddings():
+def createFinalJSON():
     # load json file
     product_details = None
-    with open("product_details_list1.json", "r") as file:
+    with open("product_details_list3.json", "r") as file:
         product_details = json.load(file)
     # product_details = [product_details[0]]
     # print(product_details)
@@ -24,4 +24,4 @@ def createEmbeddings():
 
 
 # run the above function
-createEmbeddings()
+createFinalJSON()
