@@ -1,0 +1,33 @@
+{
+  "user_description": "Age 25 from montana, recently moved to New York City, likes to play basketball and go to the gym.",
+  "output": [
+    {
+      "reason": "25 years of age and interested in basketball",
+      "extrapolation": [
+        "sports and physical activities",
+        "to be active and social",
+        "play video games",
+        "go to parties"
+      ]
+    },
+    {
+      "reason": "recently moved to New York City",
+      "extrapolation": [
+        "likes to explore new places",
+        "likes to meet new people",
+        "open to try new things",
+        "showcase cultures of both Montana and New York City"
+      ]
+    },
+    {
+      "reason": "likes to play basketball and from Montana and New York City",
+      "extrapolation": [
+        "Supports the New York Knicks",
+        "Supports montana grizzlies",
+        "Supports other new youk and montana sports teams"
+      ]
+    }
+  ]
+},
+
+  
