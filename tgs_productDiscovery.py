@@ -5,6 +5,7 @@ from pinecone import Pinecone, ServerlessSpec
 from flask import Flask, request
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import GoogleGenerativeAI
+from flask_cors import CORS
 
 
 from utils import generateRandomStringId
@@ -96,9 +97,10 @@ print(refine_user_prompt_template)
 index = pc.Index("tgs-cgp-index")
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:3000"])
 
 
-@app.route("/discover", methods=["GET"])
+@app.route("/discover", methods=["POST"])
 async def addProduct():
     payload = request.get_json()
     # convert data form json to string
