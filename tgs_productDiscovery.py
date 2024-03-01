@@ -6,7 +6,7 @@ from flask import Flask, request
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import GoogleGenerativeAI
 from flask_cors import CORS
-
+from langchain.llms import openai
 
 from utils import generateRandomStringId
 
@@ -14,6 +14,9 @@ pc = Pinecone()
 embeddings = GoogleGenerativeAIEmbeddings(
     model="models/embedding-001",
 )
+embeddings = embeddings.openai_langchain_embeddings()
+
+
 model = genai.GenerativeModel(model_name="gemini-pro")
 llm = GoogleGenerativeAI(model="gemini-pro")
 
@@ -91,7 +94,6 @@ The user_description is as follows :
 
 
 refine_user_prompt_template = PromptTemplate.from_template(text)
-print(refine_user_prompt_template)
 
 
 index = pc.Index("tgs-cgp-index")
@@ -105,11 +107,12 @@ async def addProduct():
     payload = request.get_json()
     # convert data form json to string
     user_prompt = str(payload["user_prompt"])
+
+    # use metadata as filter in pinecone query
     metadata = payload["metadata"]
 
     # LLM_prompt = refine_user_prompt_template.format(user_description=user_prompt)
     LLM_prompt = text + user_prompt
-    print(LLM_prompt)
 
     # Refine user prompt using Google Generative AI
     # refined_prompt = await model.aquery(LLM_prompt)
@@ -122,7 +125,6 @@ async def addProduct():
 
     # Generate embedding using Google Generative AI
     vectors = await embeddings.aembed_documents(str(refined_prompt))
-    print(type(vectors))
 
     query_response = index.query(
         namespace=None,
@@ -141,6 +143,9 @@ async def addProduct():
         description = match["metadata"]["description"]
         product = match["metadata"]["product"]
 
-        productList.append((id, url, description, product))
+        productList.append(
+            {"id": id, "url": url, "description": description, "product": product}
+        )
 
-    return productList
+    print(productList)
+    return json.dumps(productList)

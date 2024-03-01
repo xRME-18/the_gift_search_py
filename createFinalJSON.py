@@ -3,10 +3,15 @@ import json
 from listingGenerator import generateJSONForEmbedding
 
 
-def createFinalJSON():
+def createFinalJSON(number):
     # load json file
     product_details = None
-    with open("./scrappedProductDescription/product_details_list1.json", "r") as file:
+    with open(
+        "./scrappedProductDescription/EstyPersonalisedGiftDescription"
+        + str(number)
+        + ".json",
+        "r",
+    ) as file:
         product_details = json.load(file)
     # product_details = [product_details[0]]
     # print(product_details)
@@ -14,7 +19,10 @@ def createFinalJSON():
     productEmbedding_JSON_list = []
 
     with open(
-        "./finalJSON/productEmbedding_JSON_list1-secondPrompt.json", "a+"
+        "./finalJSON/Product_Embedding_EstyPersonalisedGiftDescription"
+        + str(number)
+        + ".json",
+        "a+",
     ) as file:
         for i, product in enumerate(product_details):
             print("starting product: ", i)
@@ -26,4 +34,5 @@ def createFinalJSON():
 
 
 # run the above function
-createFinalJSON()
+# for number in range(7, 14):
+#     createFinalJSON(number)

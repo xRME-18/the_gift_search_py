@@ -1,6 +1,8 @@
 import json
 import datetime
 from langchain_google_genai import GoogleGenerativeAI
+from langchain_openai import OpenAI
+
 
 example_prompt = """
 {
@@ -153,6 +155,24 @@ only return the JSON object, nothing else
 
 """
 
+uniqueAttributesPrompt = """
+give this product description, 
+what differenciates it form its generic counterpart, return the output as a JSON obejct
+example:
+description : 
+{ "product": "TerraCotta Lamp Hanging Light Fixture", "description": "Give your home a boost of warmth and a homely feel with a delicate natural terracotta lamp.\nMade by hand in a small boutique studio in Tel Aviv\nAll necessary fitting parts are included.\nTechnical:\nLamp holder: E27\nTransparent cable : 150 cm / 60 inches\nCeiling rose: 10 cm / 4 inches\nEnergy-saving LED light bulbs are recommended. We prefer the Edison Vintage style Bulb.\nVoltage 110V-250V | 25 to 40W max\nThis piece is part of the Apilar collection.\nThe Apilar collection (Stack in Spanish) began to take shape during a family roots trip to southern Spain, influenced by the Differentiated and unique Spanish ceramics. In this collection, there are nine different shapes, from which all structures of the collection are built. Countless of creation options are formed by stacking the shapes one on top of the other into a new complex with spectacular colors.\nPlease note that this object is handmade, and each piece is unique.\nThis object can be ordered in various colors and prints, talk to us for more info.", "targetAudience": [ { "targetAudience": "Homeowners and renters looking to add a touch of warmth and homeliness to their living spaces.", "useCase": "Using the lamp to create a cozy and inviting atmosphere in living rooms, bedrooms, or dining areas." }, { "targetAudience": "Interior designers and decorators seeking unique and handmade lighting solutions for their clients.", "useCase": "Incorporating the lamp into eclectic or bohemian-style interiors, or as a statement piece in minimalist spaces." }, { "targetAudience": "Individuals interested in sustainable and eco-friendly home decor.", "useCase": "Using the lamp as a durable and energy-efficient lighting option that complements their environmentally conscious lifestyle." }
+output :
+{
+    "uniqueAttributes": {
+        "Handmade": "This lamp is made by hand in a small boutique studio in Tel Aviv, making each piece unique. This adds a personal touch and artisanal quality that cannot be replicated by mass-produced items.",
+        "Natural materials": "The lamp is made from natural terracotta, giving it a delicate and earthy aesthetic. This sets it apart from generic lamps made from artificial materials",
+        "Unique design": "The Apilar collection, of which this lamp is a part, is inspired by Spanish ceramics and features nine different shapes that can be stacked together to create a variety of designs. This offers a level of creativity and customization that is not found in most generic lamps.",
+        "Energy-efficient": "The lamp is designed to use energy-saving LED light bulbs, making it a more environmentally friendly and cost-effective lighting option.",
+        "Versatility": "The lamp can be used in various settings, from cozy living rooms to minimalist spaces, and can be ordered in different colors and prints to suit individual preferences. This versatility sets it apart from generic lamps that may have a limited range of options."
+    }
+}
+"""
+
 
 def generateJSONForEmbedding(product_detail_json):
     productURL = product_detail_json["url"]
@@ -160,15 +180,42 @@ def generateJSONForEmbedding(product_detail_json):
 
     json_string = str(product_detail_json)
 
-    final_promptProductDescription = json_string + productDescriptionPrompt2
-    final_promptTargetAudiance = json_string + targetAudiancePrompt2
+    final_promptUniqueAttributes = json_string + uniqueAttributesPrompt
 
     llm = GoogleGenerativeAI(model="gemini-pro")
+    # llm = OpenAI(openai_api_key="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")
+
+    result0 = None
+    for _ in range(5):
+        try:
+            result0 = llm.invoke(final_promptUniqueAttributes)
+            print("result0")
+            print(result0)
+            print("\n\n")
+            result0 = json.loads(result0)
+            if "uniqueAttributes" not in result0 not in result0:
+                raise ValueError("uniqueAttributes are required")
+            break
+        except json.JSONDecodeError:
+            print("JSON is not in the correct format.")
+        except ValueError as e:
+            print(e)
+    else:
+        raise ValueError("Converting to JSON failed")
+
+    final_promptProductDescription = (
+        json_string
+        + json.dumps(result0["uniqueAttributes"])
+        + productDescriptionPrompt2
+    )
+    final_promptTargetAudiance = (
+        json_string + json.dumps(result0["uniqueAttributes"]) + targetAudiancePrompt2
+    )
 
     result1 = None
     for _ in range(5):
-        result1 = llm.invoke(final_promptProductDescription)
         try:
+            result1 = llm.invoke(final_promptProductDescription)
             print("result1")
             print(result1)
             print("\n\n")
@@ -185,8 +232,8 @@ def generateJSONForEmbedding(product_detail_json):
 
     result2 = None
     for _ in range(5):
-        result2 = llm.invoke(final_promptTargetAudiance)
         try:
+            result2 = llm.invoke(final_promptTargetAudiance)
             print("result2")
             print(result2)
             print("\n\n")
@@ -209,6 +256,7 @@ def generateJSONForEmbedding(product_detail_json):
         "data": {
             "product": result1["product"],
             "description": result1["description"],
+            "uniqueAttributes": result0["uniqueAttributes"],
             "targetAudience": result2["targetAudience"],
         },
         "metadata": {
