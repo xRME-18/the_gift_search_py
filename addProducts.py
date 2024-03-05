@@ -22,5 +22,5 @@ def addfile(numbers):
             print("Added {i}th item to Pinecone" + "\n")
 
 
-# for i in range(1, 2):
-addfile(13)
+for i in range(2, 14):
+    addfile(i)

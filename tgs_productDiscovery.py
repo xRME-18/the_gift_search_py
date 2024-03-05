@@ -6,16 +6,15 @@ from flask import Flask, request
 from langchain.prompts import PromptTemplate
 from langchain_google_genai import GoogleGenerativeAI
 from flask_cors import CORS
-from langchain.llms import openai
-
+from langchain_community.llms import openai
+from localEmbeddings import generate_embeddings
 from utils import generateRandomStringId
 
 pc = Pinecone()
 embeddings = GoogleGenerativeAIEmbeddings(
     model="models/embedding-001",
 )
-embeddings = embeddings.openai_langchain_embeddings()
-
+# embeddings = embeddings.openai_langchain_embeddings()
 
 model = genai.GenerativeModel(model_name="gemini-pro")
 llm = GoogleGenerativeAI(model="gemini-pro")
@@ -124,13 +123,15 @@ async def addProduct():
         file.write(f"{refined_prompt},")
 
     # Generate embedding using Google Generative AI
-    vectors = await embeddings.aembed_documents(str(refined_prompt))
+    # vectors = await embeddings.aembed_documents(str(refined_prompt))
+    # vectors = await embeddings.aembed_documents(str(user_prompt))
+    vectors = generate_embeddings(str(user_prompt))
 
     query_response = index.query(
-        namespace=None,
+        namespace="UA_namespace",
         vector=vectors,
-        top_k=2,
-        include_values=True,
+        top_k=10,
+        # include_values=True,
         include_metadata=True,
     )
     # print(query_response)

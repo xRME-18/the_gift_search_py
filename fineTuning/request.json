@@ -1,0 +1,15 @@
+{
+  "displayName": "tgs_fineTune1",
+  "runtimeConfig": {
+    "gcsOutputDirectory": "gs://product-discovery/fineTuning",
+    "parameterValues": {
+      "project": "thegiftsearch-1",
+      "location": "us-central1",
+      "queries_path": "gs://product-discovery/query.jsonl",
+      "corpus_path": "gs://product-discovery/corpus.jsonl",
+      "train_label_path": "gs://product-discovery/training.tsv",
+      "test_label_path": "gs://product-discovery/test.tsv"
+    }
+  },
+  "templateUri": "https://us-kfp.pkg.dev/ml-pipeline/llm-text-embedding/tune-text-embedding-model/v1.1.1"
+}

@@ -1,4 +1,4 @@
-[
+
   {
     "user_description": "He's this outdoorsy type – always hiking, mountain biking, you name it. If it involves fresh air and a bit of adrenaline, he's in! Seems like his work's got something to do with computers though. He's always talking about coding projects and new software stuff. I don't totally get it, but he seems really passionate about it.",
     "output": [
@@ -298,8 +298,7 @@
         ]
       }
     ]
-  }
-]
+  },
 {
   "user_description": "He's this outdoorsy type – always hiking, mountain biking, you name it, also likes to play basketball.  If it involves fresh air and a bit of adrenaline, he's in!  Seems like his work's got something to do with computers though. He's always talking about coding projects and new software stuff. lives in new York city",
   "output": [
@@ -3002,4 +3001,718 @@
         ]
       }
     ]
-  },
+  },{
+    "user_description": "likes tech, building products tyring to break into tech, passionate about career . likes to hang with friends. likes unique movies",
+    "output": [
+      {
+        "reason": "likes tech, building products tyring to break into tech, passionate about career",
+        "extrapolation": [
+          "driven and ambitious",
+          "interested in learning new things",
+          "good at problem-solving",
+          "team player",
+          "has a strong work ethic",
+          "eager to take on new challenges"
+        ]
+      },
+      {
+        "reason": "likes to hang with friends",
+        "extrapolation": [
+          "values social connections",
+          "enjoys spending time with loved ones",
+          "outgoing and friendly",
+          "good listener",
+          "supportive and caring"
+        ]
+      },
+      {
+        "reason": "likes unique movies",
+        "extrapolation": [
+          "appreciates art and creativity",
+          "open-minded and curious",
+          "not afraid to think outside the box",
+          "has a good sense of humor",
+          "enjoys intellectual stimulation"
+        ]
+      },
+      {
+        "reason": "likes tech, building products tyring to break into tech, passionate about career and likes to hang with friends",
+        "extrapolation": [
+          "values both professional and personal growth",
+          "strives for a work-life balance",
+          "enjoys collaborating with others",
+          "is able to prioritize and manage time effectively",
+          "is adaptable and resilient"
+        ]
+      },
+      {
+        "reason": "likes tech, building products tyring to break into tech, passionate about career and likes unique movies",
+        "extrapolation": [
+          "interested in the intersection of technology and creativity",
+          "enjoys using technology to solve problems and create new things",
+          "has a strong desire to make a difference in the world",
+          "is always looking for new ways to learn and grow",
+          "is passionate about innovation"
+        ]
+      },
+      {
+        "reason": "likes to hang with friends and likes unique movies",
+        "extrapolation": [
+          "enjoys spending time with friends who share similar interests",
+          "values intellectual companionship",
+          "is always up for a good conversation",
+          "enjoys exploring new ideas and perspectives",
+          "is open to new experiences"
+        ]
+      }
+    ]
+  },{
+  "user_description": "loves tech and passionate about career",
+  "output": [
+    {
+      "reason": "loves tech",
+      "extrapolation": [
+        "interested in latest gadgets and trends",
+        "works in or wants to work in the tech industry",
+        "enjoys learning about new technologies",
+        "attends tech conferences and events",
+        "subscribes to tech blogs and magazines",
+        "owns multiple tech devices"
+      ]
+    },
+    {
+      "reason": "passionate about career",
+      "extrapolation": [
+        "driven and ambitious",
+        "works long hours and is dedicated to their job",
+        "seeks out opportunities for professional development",
+        "is a high achiever and sets high goals for themselves",
+        "is respected by their colleagues and peers",
+        "is a leader in their field"
+      ]
+    },
+    {
+      "reason": "loves tech and passionate about career",
+      "extrapolation": [
+        "may work in a tech startup or a large tech company",
+        "may be involved in developing new technologies",
+        "may be a tech blogger or writer",
+        "may teach or mentor others about technology",
+        "may be an advocate for the use of technology in society"
+      ]
+    }
+  ]
+},{
+    "user_description": "loves tech and passionate about career",
+    "output": [
+      {
+        "reason": "loves tech",
+        "extrapolation": [
+          "interested in computer science",
+          "interested in software development",
+          "interested in hardware engineering",
+          "interested in artificial intelligence",
+          "interested in machine learning",
+          "interested in data science",
+          "interested in cloud computing",
+          "interested in blockchain",
+          "interested in cryptocurrency",
+          "interested in fintech"
+        ]
+      },
+      {
+        "reason": "passionate about career",
+        "extrapolation": [
+          "driven",
+          "ambitious",
+          "hardworking",
+          "dedicated",
+          "motivated",
+          "goal-oriented",
+          "success-oriented",
+          "results-oriented",
+          "achiever",
+          "leader"
+        ]
+      },
+      {
+        "reason": "loves tech and passionate about career",
+        "extrapolation": [
+          "interested in tech startups",
+          "interested in tech giants",
+          "interested in tech industry",
+          "interested in tech news",
+          "interested in tech trends",
+          "interested in tech events",
+          "interested in tech conferences",
+          "interested in tech meetups",
+          "interested in tech blogs",
+          "interested in tech podcasts"
+        ]
+      }
+    ]
+  },{
+    "user_description": "loves tech and passionate about career",
+    "output": [
+      {
+        "reason": "loves tech",
+        "extrapolation": [
+          "interested in the latest gadgets and trends",
+          "enjoys learning about new technologies",
+          "may work in the tech industry or aspire to",
+          "interested in the intersection of technology and other fields"
+        ]
+      },
+      {
+        "reason": "passionate about career",
+        "extrapolation": [
+          "driven and ambitious",
+          "dedicated to their work",
+          "always looking for ways to improve and advance",
+          "may be in a leadership or management position or aspire to be"
+        ]
+      },
+      {
+        "reason": "loves tech and passionate about career",
+        "extrapolation": [
+          "interested in using technology to drive innovation and solve problems",
+          "may be a tech entrepreneur or aspire to be",
+          "interested in the ethical and societal implications of technology"
+        ]
+      }
+    ]
+  },{
+    "user_description": "a software developer, loves his family and likes to stay close to friends. trying to loose weight, watches diverse genere of movies and tv shows and is very competative",
+    "output": [
+      {
+        "reason": "a software developer",
+        "extrapolation": [
+          "enjoys problem solving",
+          "likes to learn new things",
+          "values logic and efficiency"
+        ]
+      },
+      {
+        "reason": "loves his family and likes to stay close to friends",
+        "extrapolation": [
+          "values relationships",
+          "enjoys spending time with loved ones",
+          "is loyal and supportive"
+        ]
+      },
+      {
+        "reason": "trying to loose weight",
+        "extrapolation": [
+          "is health-conscious",
+          "is motivated to improve his well-being",
+          "values self-discipline"
+        ]
+      },
+      {
+        "reason": "watches diverse genere of movies and tv shows",
+        "extrapolation": [
+          "has a wide range of interests",
+          "is open-minded and curious",
+          "appreciates different cultures and perspectives"
+        ]
+      },
+      {
+        "reason": "is very competative",
+        "extrapolation": [
+          "is driven to succeed",
+          "enjoys challenges",
+          "is results-oriented"
+        ]
+      },
+      {
+        "reason": "a software developer, loves his family and likes to stay close to friends, trying to loose weight, watches diverse genere of movies and tv shows and is very competative",
+        "extrapolation": [
+          "is a well-rounded individual with a variety of interests and passions",
+          "values both personal and professional growth",
+          "is motivated to achieve his goals"
+        ]
+      }
+    ]
+  },{
+    "user_description": "a software developer, loves his family and likes to stay close to friends. trying to loose weight, watches diverse genere of movies and tv shows and is very competative. while travelling likes to stay in luxary hotels, lives in india",
+    "output": [
+      {
+        "reason": "a software developer",
+        "extrapolation": [
+          "Enjoys problem-solving and logical thinking",
+          "Values efficiency and precision",
+          "Interested in technology and innovation",
+          "May have a strong attention to detail",
+          "Appreciates automation and efficiency tools"
+        ]
+      },
+      {
+        "reason": "loves his family and likes to stay close to friends",
+        "extrapolation": [
+          "Values relationships and social connections",
+          "Enjoys spending quality time with loved ones",
+          "May prioritize family and friends over other commitments",
+          "Appreciates loyalty and support",
+          "May have a strong sense of community"
+        ]
+      },
+      {
+        "reason": "trying to loose weight",
+        "extrapolation": [
+          "Concerned about health and well-being",
+          "Values physical fitness and a healthy lifestyle",
+          "May be disciplined and motivated",
+          "Appreciates healthy food and exercise",
+          "May seek support and guidance from others"
+        ]
+      },
+      {
+        "reason": "watches diverse genere of movies and tv shows",
+        "extrapolation": [
+          "Enjoys entertainment and storytelling",
+          "Appreciates different cultures and perspectives",
+          "May have a broad range of interests and hobbies",
+          "Values creativity and imagination",
+          "May be open-minded and curious"
+        ]
+      },
+      {
+        "reason": "is very competative",
+        "extrapolation": [
+          "Values success and achievement",
+          "Enjoys challenges and pushing limits",
+          "May be driven and ambitious",
+          "Appreciates recognition and rewards",
+          "May have a strong sense of self-belief"
+        ]
+      },
+      {
+        "reason": "while travelling likes to stay in luxary hotels",
+        "extrapolation": [
+          "Values comfort and luxury",
+          "Enjoys high-quality experiences",
+          "May have a discerning taste",
+          "Appreciates attention to detail and personalized service",
+          "May be willing to pay for premium experiences"
+        ]
+      },
+      {
+        "reason": "lives in india",
+        "extrapolation": [
+          "Familiar with Indian culture and traditions",
+          "May have a strong sense of national pride",
+          "Appreciates Indian cuisine and art",
+          "May be influenced by Indian values and beliefs",
+          "May have a network of friends and family in India"
+        ]
+      },
+      {
+        "reason": "a software developer who loves his family and likes to stay close to friends",
+        "extrapolation": [
+          "Values both professional success and personal relationships",
+          "May seek a balance between work and family life",
+          "Appreciates the support and companionship of loved ones",
+          "May prioritize stability and security in both career and personal life",
+          "May enjoy spending time with family and friends while pursuing professional goals"
+        ]
+      },
+      {
+        "reason": "a software developer who is trying to loose weight",
+        "extrapolation": [
+          "Concerned about health and well-being in both personal and professional life",
+          "May seek to improve physical fitness while maintaining a busy work schedule",
+          "Appreciates the importance of self-care and work-life balance",
+          "May value healthy eating habits and regular exercise",
+          "May seek support and guidance from colleagues or fitness professionals"
+        ]
+      },
+      {
+        "reason": "a software developer who watches diverse genere of movies and tv shows",
+        "extrapolation": [
+          "Enjoys entertainment and storytelling as a way to relax and unwind after work",
+          "May appreciate different cultures and perspectives, which can enhance creativity and problem-solving skills",
+          "Values creativity and imagination, which can be beneficial in software development",
+          "May be open-minded and curious, which can lead to innovative solutions",
+          "May enjoy discussing movies and TV shows with colleagues or friends"
+        ]
+      },
+      {
+        "reason": "a software developer who is very competative",
+        "extrapolation": [
+          "Values success and achievement in both personal and professional life",
+          "May be driven and ambitious, which can lead to high performance in software development",
+          "Appreciates recognition and rewards, which can motivate continued growth and development",
+          "May enjoy challenges and pushing limits, which can lead to innovative solutions",
+          "May have a strong sense of self-belief, which can be beneficial in overcoming obstacles"
+        ]
+      },
+      {
+        "reason": "a software developer who while travelling likes to stay in luxary hotels",
+        "extrapolation": [
+          "Values comfort and luxury, which may extend to both personal and professional life",
+          "May enjoy high-quality experiences, such as attending conferences or workshops in luxurious settings",
+          "Appreciates attention to detail and personalized service, which can enhance the overall experience",
+          "May be willing to pay for premium experiences, such as software development tools or training programs",
+          "May enjoy sharing experiences with colleagues or friends"
+        ]
+      },
+      {
+        "reason": "a software developer who lives in india",
+        "extrapolation": [
+          "Familiar with Indian culture and traditions, which may influence personal and professional values",
+          "May have a strong sense of national pride, which can motivate contributions to the local tech industry",
+          "Appreciates Indian cuisine and art, which may inspire creative solutions in software development",
+          "May be influenced by Indian values and beliefs, such as collectivism and respect for elders",
+          "May have a network of friends and family in India, which can provide support and collaboration opportunities"
+        ]
+      }
+    ]
+  },{
+    "user_description": "a software developer, loves his family and likes to stay close to friends. trying to loose weight, watches diverse genere of movies and tv shows and is very competative. while travelling likes to stay in luxary hotels, lives in india. loves to eat ice cream",
+    "output": [
+      {
+        "reason": "a software developer",
+        "extrapolation": [
+          "tech-savvy",
+          "problem-solver",
+          "detail-oriented",
+          "logical",
+          "analytical"
+        ]
+      },
+      {
+        "reason": "loves his family and likes to stay close to friends",
+        "extrapolation": [
+          "values family and friendship",
+          "loyal",
+          "supportive",
+          "nurturing",
+          "caring"
+        ]
+      },
+      {
+        "reason": "trying to loose weight",
+        "extrapolation": [
+          "health-conscious",
+          "disciplined",
+          "motivated",
+          "goal-oriented",
+          "determined"
+        ]
+      },
+      {
+        "reason": "watches diverse genere of movies and tv shows",
+        "extrapolation": [
+          "open-minded",
+          "curious",
+          "appreciative of different cultures",
+          "imaginative",
+          "creative"
+        ]
+      },
+      {
+        "reason": "is very competative",
+        "extrapolation": [
+          "driven",
+          "ambitious",
+          "results-oriented",
+          "hardworking",
+          "persistent"
+        ]
+      },
+      {
+        "reason": "while travelling likes to stay in luxary hotels",
+        "extrapolation": [
+          "enjoys the finer things in life",
+          "values comfort and luxury",
+          "appreciates quality",
+          "has a discerning taste",
+          "is willing to pay for experiences"
+        ]
+      },
+      {
+        "reason": "lives in india",
+        "extrapolation": [
+          "familiar with Indian culture and traditions",
+          "appreciates Indian cuisine",
+          "has a network of friends and family in India",
+          "is knowledgeable about Indian history and politics",
+          "is proud to be Indian"
+        ]
+      },
+      {
+        "reason": "loves to eat ice cream",
+        "extrapolation": [
+          "has a sweet tooth",
+          "enjoys simple pleasures",
+          "is nostalgic for childhood",
+          "is willing to indulge in guilty pleasures",
+          "appreciates the finer things in life"
+        ]
+      },
+      {
+        "reason": "a software developer who loves his family and likes to stay close to friends",
+        "extrapolation": [
+          "values both family and work",
+          "is able to balance personal and professional life",
+          "is loyal and supportive to those he cares about",
+          "is a team player",
+          "is able to build and maintain relationships"
+        ]
+      },
+      {
+        "reason": "a software developer who is trying to loose weight",
+        "extrapolation": [
+          "is health-conscious and disciplined",
+          "is motivated and goal-oriented",
+          "is able to make and stick to a plan",
+          "is willing to put in the effort to achieve his goals",
+          "is able to overcome challenges and setbacks"
+        ]
+      },
+      {
+        "reason": "a software developer who watches diverse genere of movies and tv shows",
+        "extrapolation": [
+          "is open-minded and curious",
+          "appreciates different cultures and perspectives",
+          "is imaginative and creative",
+          "is able to think outside the box",
+          "is able to see the world from different perspectives"
+        ]
+      },
+      {
+        "reason": "a software developer who is very competative",
+        "extrapolation": [
+          "is driven and ambitious",
+          "is results-oriented and hardworking",
+          "is persistent and determined",
+          "is able to handle pressure and stress",
+          "is able to set and achieve goals"
+        ]
+      },
+      {
+        "reason": "a software developer who while travelling likes to stay in luxary hotels",
+        "extrapolation": [
+          "enjoys the finer things in life",
+          "values comfort and luxury",
+          "appreciates quality",
+          "has a discerning taste",
+          "is willing to pay for experiences"
+        ]
+      },
+      {
+        "reason": "a software developer who lives in india",
+        "extrapolation": [
+          "is familiar with Indian culture and traditions",
+          "appreciates Indian cuisine",
+          "has a network of friends and family in India",
+          "is knowledgeable about Indian history and politics",
+          "is proud to be Indian"
+        ]
+      },
+      {
+        "reason": "a software developer who loves to eat ice cream",
+        "extrapolation": [
+          "has a sweet tooth",
+          "enjoys simple pleasures",
+          "is nostalgic for childhood",
+          "is willing to indulge in guilty pleasures",
+          "appreciates the finer things in life"
+        ]
+      }
+    ]
+  },{
+    "user_description": "loves to eat ice cream",
+    "output": [
+      {
+        "reason": "likes to eat ice cream",
+        "extrapolation": [
+          "enjoys sweet and cold treats",
+          "likes to try different flavors",
+          "likes to go to ice cream parlors",
+          "might have a sweet tooth"
+        ]
+      }
+    ]
+  },{
+    "user_description": "loves to eat ice cream",
+    "output": [
+      {
+        "reason": "loves to eat ice cream",
+        "extrapolation": [
+          "enjoys sweet and creamy desserts",
+          "may have a sweet tooth",
+          "likes to indulge in tasty treats",
+          "appreciates the coldness and smoothness of ice cream"
+        ]
+      }
+    ]
+  },{
+    "user_description": "ice cream",
+    "output": [
+      {
+        "reason": "interested in ice cream",
+        "extrapolation": [
+          "likes to eat sweet things",
+          "likes to try new flavors",
+          "likes to go to ice cream shops",
+          "likes to make ice cream at home",
+          "likes to learn about the history of ice cream"
+        ]
+      }
+    ]
+  },{
+    "user_description": "ice cream",
+    "output": [
+      {
+        "reason": "likes ice cream",
+        "extrapolation": [
+          "has a sweet tooth",
+          "enjoys cold and refreshing treats",
+          "may appreciate other sweet desserts"
+        ]
+      }
+    ]
+  },{
+    "user_description": "loves board games, collects and play unique and speical board games",
+    "output": [
+      {
+        "reason": "loves board games",
+        "extrapolation": [
+          "interested in strategy games",
+          "likes to spend time with friends and family",
+          "enjoys learning new things"
+        ]
+      },
+      {
+        "reason": "collects and play unique and special board games",
+        "extrapolation": [
+          "appreciates the art and history of board games",
+          "likes to share their knowledge of board games with others",
+          "interested in collecting rare and unusual board games"
+        ]
+      },
+      {
+        "reason": "loves board games, collects and play unique and special board games",
+        "extrapolation": [
+          "may be a member of a board game club or organization",
+          "attends board game conventions and events",
+          "follows board game news and reviews"
+        ]
+      }
+    ]
+  },{
+    "user_description": "This is a digital family portrait drawing that is created from a photo you provide. The drawing is done in a minimalist modern line style and can include up to 20 people. You can also add text to the drawing, such as a name, date, or special message. The drawing is a great way to commemorate a special occasion or to give as a gift to a loved one.",
+    "output": [
+      {
+        "reason": "The drawing is done in a minimalist modern line style",
+        "extrapolation": [
+          "likes modern art",
+          "likes minimalist design",
+          "appreciates simplicity and elegance",
+          "enjoys clean lines and geometric shapes",
+          "values functionality and efficiency"
+        ]
+      },
+      {
+        "reason": "The drawing can include up to 20 people",
+        "extrapolation": [
+          "has a large family or social circle",
+          "values family and relationships",
+          "enjoys spending time with loved ones",
+          "is a social person who likes to be surrounded by others",
+          "appreciates the importance of community"
+        ]
+      },
+      {
+        "reason": "You can also add text to the drawing, such as a name, date, or special message",
+        "extrapolation": [
+          "values personalization and customization",
+          "likes to make things unique and special",
+          "appreciates the sentimental value of objects",
+          "enjoys expressing themselves creatively",
+          "has a good attention to detail"
+        ]
+      },
+      {
+        "reason": "The drawing is a great way to commemorate a special occasion or to give as a gift to a loved one",
+        "extrapolation": [
+          "values tradition and family history",
+          "enjoys celebrating special occasions",
+          "is thoughtful and caring",
+          "appreciates the importance of giving and receiving gifts",
+          "has a strong sense of community and belonging"
+        ]
+      }
+    ]
+  },{
+    "user_description": "Personalized Ice Cream Spoon",
+    "output": [
+      {
+        "reason": "personalized",
+        "extrapolation": [
+          "likes to have unique and special items",
+          "appreciates personal touches",
+          "enjoys customizing their belongings"
+        ]
+      },
+      {
+        "reason": "ice cream",
+        "extrapolation": [
+          "likes to eat ice cream",
+          "enjoys sweet treats",
+          "may have a sweet tooth"
+        ]
+      },
+      {
+        "reason": "spoon",
+        "extrapolation": [
+          "uses a spoon to eat ice cream",
+          "prefers spoons over other utensils",
+          "may have a specific preference for the size or shape of spoons"
+        ]
+      },
+      {
+        "reason": "personalized ice cream spoon",
+        "extrapolation": [
+          "likes to have a special spoon for eating ice cream",
+          "enjoys the combination of personalization and functionality",
+          "may use the spoon as a way to express their personality or style"
+        ]
+      }
+    ]
+  },{
+    "user_description": "loves ice cream",
+    "output": [
+      {
+        "reason": "loves ice cream",
+        "extrapolation": [
+          "enjoys sweet and creamy foods",
+          "may be interested in trying different flavors and varieties of ice cream",
+          "could be interested in the history and production of ice cream",
+        ]
+      },
+      {
+        "reason": "loves ice cream",
+        "extrapolation": [
+          "may be interested in other desserts and sweet treats",
+          "could enjoy baking or cooking",
+          "might be interested in food-related hobbies or activities",
+        ]
+      }
+    ]
+  },{
+    "user_description": "really loves ice cream",
+    "output": [
+      {
+        "reason": "likes ice cream",
+        "extrapolation": [
+          "likes cold desserts",
+          "likes sweet desserts",
+          "likes to try new flavors",
+          "likes to indulge in something sweet",
+          "likes to treat themselves"
+        ]
+      }
+    ]
+},

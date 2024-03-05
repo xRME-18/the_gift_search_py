@@ -1,6 +1,8 @@
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
 from pinecone import Pinecone, ServerlessSpec
+from localEmbeddings import generate_embeddings
+
 
 from utils import generateRandomStringId
 
@@ -11,6 +13,7 @@ embeddings = GoogleGenerativeAIEmbeddings(
 )
 model = genai.GenerativeModel(model_name="gemini-pro")
 index = pc.Index("tgs-cgp-index")
+# Load the tokenizer
 
 
 def addEmbeddingsToPinecone(payload):
@@ -19,10 +22,13 @@ def addEmbeddingsToPinecone(payload):
     metadata = payload["metadata"]
     metadata["product"] = data["product"]
     metadata["description"] = data["description"]
+    data.pop("description")
     data = str(data)
 
     # Generate embedding using Google Generative AI
-    vectors = embeddings.embed_documents(data)
+    # vectors = embeddings.embed_documents(data)
+
+    vectors = generate_embeddings(data)
     print(type(vectors))
 
     pineCodeVectors = []
@@ -34,5 +40,5 @@ def addEmbeddingsToPinecone(payload):
     # Index the embedding
     index.upsert(
         pineCodeVectors,
-        namespace="UA_namespace",
+        namespace="from-GIST-small",
     )

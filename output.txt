@@ -1,0 +1,10 @@
+{
+  "interests": [
+    "Unique and meaningful gifts",
+    "Personalized gifts",
+    "Custom song records",
+    "Modern and eclectic home decor",
+    "High-quality and durable products",
+    "Solid wood accessories"
+  ]
+},

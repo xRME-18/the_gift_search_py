@@ -3,34 +3,33 @@ from langchain_openai import OpenAI
 
 prompt = """
 give this product description, 
+  {
     "data": {
-      "product": "Round Address Sign, Geometric Address Sign, Round House Numbers, Modern Address Plaque, Custom Address Sign, House Number Plaque",
-      "description": "Geometric carved design with acrylic house numbers, perfect modern piece for your home address sign. Great housewarming gifts, realtor closing gifts, or to spruce up your front porch or door decor.\n\nTo order: \n- Choose your size\n- Note your text color\n- Note your background paint or stain color choice in the personalization area.\n\nComes with a sawtooth hanger to hang.",
+      "product": "Personalized Ice Cream Spoon",
+      "description": "- Choose Gift Wrap at checkout to receive Gift Box.\n- New, top quality stainless steel spoons.\n- Custom stamped to order, personalized ice cream spoon.\n- Polished spoon bowl with brushed finish handle.\n- Each letter individually stamped with a steel letter stamp.\n- Letter impressions are filled with non toxic paint, safe to use.\n- Non tarnish.\n-Words will be stamped exactly as spelled on the order.\n- In the font shown in the picture, all uppercase.\n-No quotation marks or emoticons.\n- Oval Teaspoon 6.10\" long x 1.25\" wide, for coffee, tea, desert spoon.\n- Oval Tablespoon 6.75\" long x 1.50\" wide, for cereal, ice cream, dinner spoon.",
+      "uniqueAttributes": {
+        "Personalized": "The spoon can be custom stamped with any words or name, making it a unique and personal gift for any occasion. This personalization sets it apart from generic ice cream spoons that are mass-produced and lack a personal touch.",
+        "High-quality materials": "The spoon is made from top-quality stainless steel, ensuring durability and longevity. This sets it apart from generic spoons that may be made from cheaper materials and may not withstand regular use.",
+        "Handcrafted": "Each spoon is individually stamped with a steel letter stamp, giving it a handcrafted quality that is not found in generic spoons. This attention to detail adds to the spoon's charm and makes it a special keepsake.",
+        "Non-toxic and safe": "The letter impressions on the spoon are filled with non-toxic paint, making it safe to use for eating. This sets it apart from generic spoons that may use harmful materials that could leach into food."
+      },
       "targetAudience": [
         {
-          "targetAudience": "Homeowners looking to upgrade their address sign with a stylish and modern option",
-          "useCase": "To display their house number prominently and enhance the aesthetic appeal of their home's exterior"
+          "targetAudience": "Families with children",
+          "useCase": "The spoon can be personalized with the names of family members, making it a fun and unique way to enjoy ice cream together."
         },
         {
-          "targetAudience": "Realtors seeking unique and thoughtful closing gifts for their clients",
-          "useCase": "To provide a personalized and practical present that will be cherished by new homeowners"
+          "targetAudience": "Couples",
+          "useCase": "The spoon can be personalized with a special message or date, making it a romantic and thoughtful gift for anniversaries or Valentine's Day."
         },
         {
-          "targetAudience": "Individuals seeking decorative accents for their front porch or door",
-          "useCase": "To add a touch of modern design and personalization to their outdoor space"
+          "targetAudience": "Grandparents",
+          "useCase": "The spoon can be personalized with the names of grandchildren, making it a cherished keepsake for grandparents to use when they are enjoying ice cream with their loved ones."
         }
       ]
     },
-what differenciates it form its generic counterpart, return the output as a JSON obejct
-example : 
-"data": { "product": "TerraCotta Lamp Hanging Light Fixture", "description": "Give your home a boost of warmth and a homely feel with a delicate natural terracotta lamp.\nMade by hand in a small boutique studio in Tel Aviv\nAll necessary fitting parts are included.\nTechnical:\nLamp holder: E27\nTransparent cable : 150 cm / 60 inches\nCeiling rose: 10 cm / 4 inches\nEnergy-saving LED light bulbs are recommended. We prefer the Edison Vintage style Bulb.\nVoltage 110V-250V | 25 to 40W max\nThis piece is part of the Apilar collection.\nThe Apilar collection (Stack in Spanish) began to take shape during a family roots trip to southern Spain, influenced by the Differentiated and unique Spanish ceramics. In this collection, there are nine different shapes, from which all structures of the collection are built. Countless of creation options are formed by stacking the shapes one on top of the other into a new complex with spectacular colors.\nPlease note that this object is handmade, and each piece is unique.\nThis object can be ordered in various colors and prints, talk to us for more info.", "targetAudience": [ { "targetAudience": "Homeowners and renters looking to add a touch of warmth and homeliness to their living spaces.", "useCase": "Using the lamp to create a cozy and inviting atmosphere in living rooms, bedrooms, or dining areas." }, { "targetAudience": "Interior designers and decorators seeking unique and handmade lighting solutions for their clients.", "useCase": "Incorporating the lamp into eclectic or bohemian-style interiors, or as a statement piece in minimalist spaces." }, { "targetAudience": "Individuals interested in sustainable and eco-friendly home decor.", "useCase": "Using the lamp as a durable and energy-efficient lighting option that complements their environmentally conscious lifestyle." }
-{
-    "Handmade" : "This lamp is made by hand in a small boutique studio in Tel Aviv, making each piece unique. This adds a personal touch and artisanal quality that cannot be replicated by mass-produced items.",
-    "Natural materials" : "The lamp is made from natural terracotta, giving it a delicate and earthy aesthetic. This sets it apart from generic lamps made from artificial materials",
-    "Unique design" : "The Apilar collection, of which this lamp is a part, is inspired by Spanish ceramics and features nine different shapes that can be stacked together to create a variety of designs. This offers a level of creativity and customization that is not found in most generic lamps.",
-    "Energy-efficient" : "The lamp is designed to use energy-saving LED light bulbs, making it a more environmentally friendly and cost-effective lighting option.",
-    "Versatility" : "The lamp can be used in various settings, from cozy living rooms to minimalist spaces, and can be ordered in different colors and prints to suit individual preferences. This versatility sets it apart from generic lamps that may have a limited range of options."
-}
+give the a blue print of kind of person that might be interetsed in this
+
 """
 
 prompt2 = """
@@ -58,11 +57,50 @@ output :
 }
 """
 
+generateNuancedTargetAudiancePrompt = """
+      "product": "Pendant Ceramic Lamp",
+      "description": "This pendant ceramic lamp is a handmade design and a contemporary artwork creation. It is part of the Apilar collection, which is influenced by Spanish ceramics. The lamp has a unique design with nine different shapes that can be stacked on top of each other to create new complex compositions. The lamp also features ceramic prints that are inspired by traditions from different cultures, creating a contemporary cultural collage. The designer is engaged in ongoing research on traditional ceramics as a cultural carrier and is searching for a sense of belonging through the local material culture.",
+      "uniqueAttributes": {
+        "Handmade": "This piece was created in the innovative studio of the designer-maker Noa Razer, which is located in Tel Aviv, Israel.",
+        "Contemporary artwork": "It is part of the Apilar collection, which is a contemporary artwork creation.",
+        "Unique design": "The Apilar collection began to take shape during a family roots trip to southern Spain, influenced by the differentiated and unique Spanish ceramics. In this collection, there are nine different shapes, from which all structures of the collection are built.",
+        "Cultural collage": "On top of the pieces are ceramic prints, inspired by traditions from different cultures, creating a contemporary cultural collage.",
+        "Ongoing research": "The designer is engaged in ongoing research, visual as well as theoretical, focusing on traditional ceramics as a cultural carrier and searching for a sense of belonging through the local material culture."
+      }
+      given this product description, generate a nuanced target audience for the product. Fill this JSON object
+      for example:
+      {
+        "interests": [
+          "Products made in Tel Aviv",
+          "comtemporary artwrok part of Apilar collection",
+          ""Cultural collage : Ceremic prints inspired from different cultures",
+          "Unique design",
+          "handmade products"
+        ]
+      }
+      Now do this for product
+            "product": "Personalized Vinyl Record Song with Lyrics on Acrylic with Wood Stand",
+      "description": "This personalized acrylic song record is a unique and meaningful gift for any occasion. It features your special song, lyrics, and other custom info, making it a truly special keepsake. The modern and eclectic design will fit in with any space in your home, adding a touch of style to your decor. The song record is made from high-quality, guaranteed defect-free, 1/4\" thick acrylic, ensuring its durability and longevity. It comes with a solid wood stand made from oak or walnut, providing a sturdy and stylish base for the song record.",
+      "uniqueAttributes": {
+        "Personalized": "This song record is personalized with your special song, lyrics, and other custom info, making it a truly unique and meaningful gift.",
+        "Modern and eclectic design": "The modern and eclectic design of this song record will fit in with any space in your home, adding a touch of style to your decor.",
+        "Custom text": "You can include custom text of your choosing, making this song record even more special and personal.",
+        "High-quality materials": "The song record is made from high-quality, guaranteed defect-free, 1/4\" thick acrylic, ensuring its durability and longevity.",
+        "Solid wood stand": "The included wood stand is made from solid oak wood or walnut, providing a sturdy and stylish base for the song record."
+      }
+      only reutrn the JSON object, nothing else
+      """
 
-# llm = GoogleGenerativeAI(model="gemini-pro")
-llm = OpenAI(openai_api_key="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")
+
+llm = GoogleGenerativeAI(model="gemini-pro")
+# llm = OpenAI(openai_api_key="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")
 try:
-    result1 = llm.invoke(prompt2)
+    result1 = llm.invoke(generateNuancedTargetAudiancePrompt)
+
+    with open("output.txt", "a+") as file:
+        file.write(result1)
+        file.write(",\n")
+
     print(result1)
 except Exception as e:
     print(f"An error occurred: {e}")
