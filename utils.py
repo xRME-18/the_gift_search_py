@@ -9,7 +9,7 @@ tokenizer = AutoTokenizer.from_pretrained("./fineTuning/Tokeniser")
 model = AutoModel.from_pretrained("./fineTuning/Model")
 
 
-def generate_embeddings(text):
+def generate_local_embeddings(text):
     inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
     outputs = model(**inputs)
     # return outputs.last_hidden_state.detach().numpy()

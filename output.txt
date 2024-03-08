@@ -8,3 +8,780 @@
     "Solid wood accessories"
   ]
 },
+     
+{
+  "interests": [
+    "Personalized gifts",
+    "Home decor",
+    "Unique and meaningful gifts",
+    "Acrylic products",
+    "Customized text",
+    "High-quality materials",
+    "Solid wood furniture",
+    "Modern and eclectic design"
+  ]
+},
+      ```""",
+    temperature=0.3,
+    max_tokens=200,
+  )
+  return response.choices[0].text
+
+# print(generate_target_audience())
+
+def generate_ad_copy():
+  response = openai.Completion.create(
+    model="text-davinci-002",
+    prompt="""generate an ad copy for a product:
+      "product": "Personalized Vinyl Record Song with Lyrics on Acrylic with Wood Stand",
+      "description": "This personalized acrylic song record is a unique and meaningful gift for any occasion. It features your special song, lyrics, and other custom info, making it a truly special keepsake. The modern and eclectic design will fit in with any space in your home, adding a touch of style to your decor. The song record is made from high-quality, guaranteed defect-free, 1/4" thick acrylic, ensuring its durability and longevity. It comes with a solid wood stand made from oak or walnut, providing a sturdy and stylish base for the song record.",
+      "uniqueAttributes": {
+        "Personalized": "This song record is personalized with your special song, lyrics, and other custom info, making it a truly unique and meaningful gift.",
+        "Modern and eclectic design": "The modern and eclectic,
+
+
+It is not possible to give details about the model as no model name or number was provided. Please provide more information for a specific answer. ,
+
+
+I am sorry, I do not have enough information to provide an accurate answer. Can you please provide more context or details about the model you are referring to? Thank you.,
+
+{
+  "Given": [
+    "Basketball", 
+    "Gym"
+  ],
+  "Extrapolated": [
+    "Outdoor activities", 
+    "Sports", 
+    "Fitness"
+  ],
+  "Wild Guess": [
+    "Exploring new places", 
+    "Trying new foods", 
+    "Music"
+  ]
+},
+
+{
+  "Given": [
+    "Basketball", 
+    "Going to the gym"
+  ],
+  "Extrapolated": [
+    "Outdoor activities", 
+    "Sports and fitness", 
+    "Exploring new places and cities"
+  ],
+  "Wild Guess": [
+    "Trying new foods and restaurants", 
+    "Attending concerts and live music events", 
+    "Hiking and nature walks"
+  ]
+},
+{
+  "Situation" : {
+    "Given" : [
+      "Recently moved from Montana to New York City"
+    ],
+    "Extrapolated" : [
+      "Possibly dealing with culture shock and adjusting to life in a big city"
+    ],
+    "Wild Guess" : [
+      "May have moved for a job or to pursue a new opportunity"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Playing basketball",
+      "Going to the gym"
+    ],
+    "Extrapolated" : [
+      "Likely enjoys being active and staying physically fit",
+      "May have a competitive nature"
+    ],
+    "Wild Guess" : [
+      "Could be a fan of the New York Knicks NBA team",
+      "Possibly enjoys trying new and trendy workout classes"
+    ]
+  }
+},
+{
+  "Situation" : {
+    "Given" : [
+      "Recently moved to New York City"
+    ],
+    "Extrapolated" : [
+      "Possibly adjusting to a new job or school",
+      "Adjusting to a different climate and culture",
+      "Possibly looking for new social connections"
+    ],
+    "Wild Guess" : [
+      "Maybe moved for a romantic relationship",
+      "Could be starting a new chapter in their life"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Likes to play basketball",
+      "Goes to the gym"
+    ],
+    "Extrapolated" : [
+      "Possibly enjoys physical activities and staying active",
+      "May have a competitive nature",
+      "May value physical fitness and health"
+    ],
+    "Wild Guess" : [
+      "Could be training for a basketball team or league",
+      "Maybe interested in pursuing a career in fitness"
+    ]
+  }
+},
+```JSON
+{
+  "Situation" : {
+    "Given" : [
+      "Recently moved to New York City"
+    ],
+    "Extrapolated" : [
+      "May be looking for new friends or social connections",
+      "May be adjusting to a new job or school"
+    ],
+    "Wild Guess" : [
+      "May be experiencing culture shock or homesickness",
+      "May be struggling to find affordable housing"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Basketball",
+      "Gym"
+    ],
+    "Extrapolated" : [
+      "Sports",
+      "Fitness",
+      "Health and wellness",
+      "Teamwork",
+      "Competition"
+    ],
+    "Wild Guess" : [
+      "Fashion",
+      "Nightlife",
+      "Travel",
+      "Photography",
+      "Cooking"
+    ]
+  }
+}
+```,
+{
+  "Situation" : {
+    "Given" : [
+      "New to New York City"
+    ],
+    "Extrapolated" : [
+      "Adjusting to new city and lifestyle"
+    ],
+    "Wild Guess" : [
+      "Might be feeling homesick and missing Montana"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Playing basketball",
+      "Going to the gym"
+    ],
+    "Extrapolated" : [
+      "Sports and physical fitness"
+    ],
+    "Wild Guess" : [
+      "Might be trying to make new friends through sports and fitness activities"
+    ]
+  }
+},
+{
+  "Situation" : {
+    "Given" : [
+      "Recently moved to New York City"
+    ],
+    "Extrapolated" : [
+      "Adjusting to a fast-paced city lifestyle"
+    ],
+    "Wild Guess" : [
+      "Living in a small apartment in the city"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Playing basketball",
+      "Going to the gym"
+    ],
+    "Extrapolated" : [
+      "Staying active and maintaining physical health",
+      "Enjoying sports and competition",
+      "Possibly interested in other physical activities or team sports"
+    ],
+    "Wild Guess" : [
+      "Watching NBA games and following favorite teams/players",
+      "Interested in joining a recreational basketball league in the city",
+      "May also enjoy other forms of exercise such as hiking or cycling"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and blending two households",
+      "Possibly dealing with wedding planning and budgeting"
+    ],
+    "Wild Guess" : [
+      "Living in a new home or apartment with their spouse",
+      "Adjusting to a new routine and responsibilities as a spouse"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creating and experimenting with new recipes",
+      "Possibly interested in different types of cuisine or cooking techniques",
+      "Finding joy and relaxation in tending to plants and gardens"
+    ],
+    "Wild Guess" : [
+      "Interested in hosting dinner parties or cooking for others",
+      "May also enjoy trying new restaurants and food experiences",
+      "Possibly interested in sustainable living and incorporating homegrown produce into meals"
+    ]
+  }
+},
+
+User : Age 30, recently married, enjoys cooking and gardening in their free time.
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and balancing individual interests with partner's"
+    ],
+    "Wild Guess" : [
+      "Possibly in the process of moving or renovating a new home"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and experimenting with new recipes",
+      "Values sustainability and self-sufficiency through gardening",
+      "Likely interested in other forms of DIY projects or homesteading"
+    ],
+    "Wild Guess" : [
+      "May have a specific cuisine or type of cooking they are passionate about",
+      "Possibly interested in joining a community garden or cooking club",
+      "May also enjoy entertaining and hosting dinner parties"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adapting to married life and finding a balance between personal and shared interests",
+      "Possibly in the process of combining households or moving into a new home"
+    ],
+    "Wild Guess" : [
+      "Planning a honeymoon or vacation with their spouse",
+      "May also be in the process of starting a family"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and trying new recipes",
+      "Possibly interested in exploring different cuisines and cooking techniques",
+      "Enjoys growing and tending to plants and flowers",
+      "May also be interested in sustainability and eco-friendly gardening practices"
+    ],
+    "Wild Guess" : [
+      "Attends cooking classes or workshops",
+      "Interested in experimenting with different gardening methods",
+      "May also enjoy entertaining and hosting dinner parties for friends and family"
+    ]
+  }
+},
+-----------------------
+
+User : Age 30, recently married, enjoys cooking and gardening in their free time.
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and balancing individual interests with spouse's interests"
+    ],
+    "Wild Guess" : [
+      "Possibly in the process of moving or setting up a new home together"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creating and experimenting with new recipes",
+      "Finding joy and relaxation in tending to plants and nature",
+      "Possibly interested in home decor and interior design"
+    ],
+    "Wild Guess" : [
+      "Interested in hosting dinner parties or cooking for friends and family",
+      "May also have a passion for sustainability and incorporating eco-friendly practices in cooking and gardening",
+      "Could also enjoy trying out different styles of gardening, such as container gardening or vertical gardening"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and building a new household together",
+      "Possibly dealing with merging two households and belongings"
+    ],
+    "Wild Guess" : [
+      "Looking for new recipes and cooking techniques to try as a couple",
+      "Deciding on household chores and responsibilities"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creating and trying new recipes",
+      "Finding satisfaction in nurturing and growing plants",
+      "Possibly interested in sustainable living and growing own produce"
+    ],
+    "Wild Guess" : [
+      "Attending cooking classes or workshops together as a couple",
+      "Planning and designing a vegetable garden in the backyard",
+      "Sharing gardening tips and produce with friends and family"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and potentially starting a family",
+      "Possibly facing new financial responsibilities and changes in living arrangements"
+    ],
+    "Wild Guess" : [
+      "Living in a house with a garden or plans to have a garden in the future"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creating and trying new recipes",
+      "Possibly interested in exploring different cuisines and cooking techniques",
+      "Finding joy in nurturing plants and watching them grow",
+      "Possibly interested in sustainable living and growing own produce"
+    ],
+    "Wild Guess" : [
+      "Enjoys hosting dinner parties and entertaining guests with homemade meals",
+      "Interested in learning more about gardening and potentially joining a gardening club",
+      "May also have an interest in DIY projects and home improvement"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and balancing individual interests with shared activities"
+    ],
+    "Wild Guess" : [
+      "Potentially in the process of buying a house or settling into a new home"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creative and hands-on activities",
+      "Taking pride in creating and maintaining a beautiful home",
+      "Possibly interested in trying new recipes or experimenting with different cuisines"
+    ],
+    "Wild Guess" : [
+      "Attending cooking classes or workshops",
+      "Involved in a community garden or gardening club",
+      "Interested in home decor and DIY projects"
+    ]
+  }
+},
+-----------------------
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and merging two separate lifestyles",
+      "Possibly in the process of finding a new home or combining households"
+    ],
+    "Wild Guess" : [
+      "Potentially in the early stages of starting a family",
+      "Dealing with wedding planning and post-wedding tasks",
+      "Navigating changes in relationships with family and friends after getting married"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying hands-on activities and creating things",
+      "Possibly interested in DIY projects or crafts",
+      "Potential interest in home decor and interior design"
+    ],
+    "Wild Guess" : [
+      "Enjoys trying out new recipes and experimenting with different cuisines",
+      "May have an interest in sustainability and growing their own food",
+      "Could also have a passion for entertaining and hosting gatherings"
+    ]
+  }
+},
+
+User : Age 30, recently married, enjoys cooking and gardening in their free time.
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and possibly new living arrangements"
+    ],
+    "Wild Guess" : [
+      "Possibly planning to start a family or have children in the near future"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creative and hands-on activities",
+      "Possibly interested in home decor and DIY projects"
+    ],
+    "Wild Guess" : [
+      "Interested in trying new recipes and experimenting with different cuisines",
+      "Possibly enjoys hosting dinner parties or gatherings",
+      "May also have an interest in sustainability and eco-friendly living"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and balancing personal and shared interests"
+    ],
+    "Wild Guess" : [
+      "Possibly in the process of moving into a new home or combining households"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creating and experimenting with new recipes",
+      "Finding satisfaction in nurturing and growing plants",
+      "Possibly interested in food and gardening blogs or websites"
+    ],
+    "Wild Guess" : [
+      "Interested in learning more about sustainable and organic gardening techniques",
+      "May enjoy hosting dinner parties or cooking for friends and family",
+      "Possibly also interested in home décor and design, as gardening and cooking often go hand in hand"
+    ]
+  }
+},
+
+User : Age 30, recently married, enjoys cooking and gardening in their free time.
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and possibly living with a spouse for the first time",
+      "Possibly in the process of setting up a new home or moving to a new place"
+    ],
+    "Wild Guess" : [
+      "Looking for ways to bond with spouse and create a homey atmosphere"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying being creative and productive",
+      "Possibly interested in trying new recipes and experimenting with different types of cuisine",
+      "Interested in growing and caring for plants, possibly with a desire for a green space in their home"
+    ],
+    "Wild Guess" : [
+      "Loves to host dinner parties and entertain guests with their cooking skills",
+      "May also be interested in other forms of DIY and home improvement projects",
+      "Possibly enjoys watching cooking or gardening shows for inspiration"
+    ]
+ ,
+
+User : Age 30, recently married, enjoys cooking and gardening in their free time. 
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life",
+      "Possibly living in a new home or apartment"
+    ],
+    "Wild Guess" : [
+      "Planning for future family and children"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creative and hands-on activities",
+      "Possibly interested in DIY projects or home improvement",
+      "Prioritizing healthy and sustainable lifestyle"
+    ],
+    "Wild Guess" : [
+      "Exploring different cuisines and recipes",
+      "Interested in learning more about gardening techniques and plants",
+      "May also enjoy other forms of art and crafts"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and potentially merging households",
+      "Possibly in the process of buying a new home or settling into a new living situation"
+    ],
+    "Wild Guess" : [
+      "Potential changes in work or financial situation due to marriage",
+      "Dealing with wedding planning and related stress"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creating and experimenting with new recipes",
+      "Possibly interested in healthy eating and nutrition",
+      "Finding joy in growing and caring for plants"
+    ],
+    "Wild Guess" : [
+      "May also enjoy hosting dinner parties or entertaining guests",
+      "Interested in exploring different cuisines or learning new cooking techniques",
+      "Possibly interested in sustainability and eco-friendly practices in gardening"
+    ]
+  }
+},
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to life as a newly married couple",
+      "Setting up a home and household together",
+      "Balancing work and personal life with a partner"
+    ],
+    "Wild Guess" : [
+      "Living in a suburban home with a small yard",
+      "Planning for the future, including starting a family"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying food and culinary experiences",
+      "Appreciating nature and the outdoors",
+      "Interested in healthy living and nutrition",
+      "May also enjoy other domestic activities such as baking or home décor"
+    ],
+    "Wild Guess" : [
+      "Subscribing to cooking magazines or following food blogs",
+      "Attending cooking classes or workshops",
+      "Volunteering at a local community garden or food bank",
+      "May also enjoy reading books or watching shows about gardening and landscaping"
+    ]
+  }
+},
+
+{
+  "Situation" : {
+    "Given" : [
+      "Recently married",
+      "Age 30"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and possibly combining households with a partner",
+      "Possibly planning for the future, such as buying a house or starting a family",
+      "Balancing personal and professional responsibilities"
+    ],
+    "Wild Guess" : [
+      "Living in a suburban or residential area",
+      "Working in a stable job or career",
+      "Saving money and planning for retirement"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying creating and experimenting with new recipes",
+      "Possibly interested in trying different cuisines or cooking techniques",
+      "Spending time in nature and enjoying the outdoors through gardening",
+      "Possibly interested in sustainability and eco-friendly practices in gardening"
+    ],
+    "Wild Guess" : [
+      "May also enjoy watching cooking shows or attending cooking classes",
+      "May be interested in growing their own food and maintaining a vegetable garden",
+      "May enjoy hosting dinner parties or,
+{
+  "Situation" : {
+    "Given" : [
+      "Age 30",
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to a new chapter in life as a married couple",
+      "Starting or planning to start a family",
+      "Balancing work and personal responsibilities",
+      "Seeking a stable and comfortable home environment",
+      "Exploring new activities and interests together as a couple"
+    ],
+    "Wild Guess" : [
+      "Owning or renting a house with a backyard for gardening",
+      "Living in a suburban or semi-urban area with a growing family"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying home-cooked meals and experimenting with new recipes",
+      "Appreciating fresh and organic ingredients",
+      "Finding joy in nurturing plants and creating a beautiful outdoor space",
+      "Possibly interested in farmers' markets, cooking classes or gardening workshops",
+      "Watching cooking shows or reading food blogs for inspiration"
+    ],
+    "Wild Guess" : [
+      "May also enjoy baking or preserving food",
+      "May be interested in sustainable living or organic gardening practices"
+    ]
+  }
+},
+{
+  "Situation" : {
+    "Given" : [
+      "Age 30",
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Married within the last 6 months",
+      "Possibly in the process of setting up a new home",
+      "Adjusting to the new responsibilities and priorities of marriage",
+      "Spending more time at home and cooking more meals together",
+      "Considering starting a family or planning for the future"
+    ],
+    "Wild Guess" : [
+      "May have recently purchased a home or apartment",
+      "May be planning a honeymoon or other romantic getaway",
+      "May be looking for ways to save money or budget as a couple"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Enjoys cooking",
+      "Enjoys gardening"
+    ],
+    "Extrapolated" : [
+      "Appreciates good food and enjoys experimenting with different cuisines",
+      "Finds cooking to be a relaxing and creative activity",
+      "Has a passion for growing plants and creating a beautiful outdoor space",
+      "May be knowledgeable about different plant species and gardening techniques",
+      "Enjoys spending time outdoors and connecting with nature"
+    ],
+    "Wild Guess" : [
+      "May be interested in attending cooking classes or workshops",
+      "May subscribe to gardening magazines or follow gardening blogs",
+      "May be interested in volunteering at a local community garden or botanical garden",
+      "May enjoy visiting farmers markets or local nurseries",
+      "May be interested in learning about sustainable gardening practices or organic gardening"
+    ]
+  }
+},

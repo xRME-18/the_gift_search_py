@@ -1,5 +1,6 @@
 from langchain_google_genai import GoogleGenerativeAI
 from langchain_openai import OpenAI
+import asyncio
 
 prompt = """
 give this product description, 
@@ -89,18 +90,178 @@ generateNuancedTargetAudiancePrompt = """
         "Solid wood stand": "The included wood stand is made from solid oak wood or walnut, providing a sturdy and stylish base for the song record."
       }
       only reutrn the JSON object, nothing else
-      """
+"""
+
+text = """
+Imagine you're a social anthropologist studying a fascinating individual. Tell me everything you can learn about them. First extrapolate using the interests mentioned, then combine those multiple interests together and then extrapolate using that.
+
+use this example
+{
+  "user_description": "Age 25 from montana, recently moved to New York City, likes to play basketball and go to the gym.",
+  "output": [
+    {
+      "reason": "interested in basketball",
+      "extrapolation": [
+        "sports and physical activities",
+        "to be active and social",
+      ]
+    },
+    {
+      "reason": "recently moved to New York City",
+      "extrapolation": [
+        "likes to explore new places",
+        "likes to meet new people",
+        "open to try new things",
+        "showcase cultures of both Montana and New York City"
+      ]
+    },
+    in this one we are combining the two characterstics of the user to get the extrapolation
+    {
+      "reason": "likes to play basketball and from Montana and New York City",
+      "extrapolation": [
+        "Supports the New York Knicks",
+        "Supports montana grizzlies",
+        "Supports other new youk and montana sports teams"
+      ]
+    },
+    {
+        "reason": "25 Years old and plays basketball",
+        "extrapolation": [
+          "likes to go out and have fun",
+          "play video games",
+          "go to parties"
+        ]
+    }
+    # and more
+  ]
+}
 
 
-llm = GoogleGenerativeAI(model="gemini-pro")
-# llm = OpenAI(openai_api_key="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")
-try:
-    result1 = llm.invoke(generateNuancedTargetAudiancePrompt)
 
-    with open("output.txt", "a+") as file:
-        file.write(result1)
-        file.write(",\n")
+and return only the answer in JSON format 
+{
+    "user_description": user_description,
+    "output": [
+      {
+        "reason": "",
+        "extrapolation": [
 
-    print(result1)
-except Exception as e:
-    print(f"An error occurred: {e}")
+        ]
+      },
+      {
+        "reason": "",
+        "extrapolation": [
+
+        ]
+      }
+    //   as many as needed
+      
+    ]
+  }
+make sure to not add any details which cannot be extrapolated from the given input and for every extrapolation provide a reasoning for the same.
+only return the JSON object, nothing else
+The user_description is as follows :
+"""
+
+# User Profile - Occassion, Interests [Given, Extrapolated, Wild Guess], Age
+interestSuggestionAgent = """
+You are someone who has studied human needs and interests for a long period, you have a deep understanding of human psychology and you can extrapolate the interests, situation they are in currently based on the informatiin provided and even extrapolate other interests,needs and situation based on the given information. You need to provide this analysis in 3 parts 1) Given - This is extracted from the information provided 2) Extrapolated - This is the information that can be extrapolated from the given information 3) Wild Guess - This is the information that is a wild guess which may or may not be accurate but is accurate based on general knowledge which can extrapolated to form the given information taking some assumptions don't just give random guesses . You need to provide this information in the JSON format.
+-----------------------
+Example : 
+User : Age 25 from montana, recently moved to New York City, likes to play basketball and go to the gym.
+output : 
+{
+  "Situation" : {
+    "Given" : [
+      "Recently moved to New York City",
+      "Age 25",
+      "From Montana"
+    ],
+    "Extrapolated" : [
+      "Adjusting to a fast-paced city lifestyle",
+      "Working in a new job or field",
+      "Possibly feeling homesick or nostalgic for Montana",
+      "Seeking new opportunities and experiences in New York City"
+    ],
+    "Wild Guess" : [
+      "Living in a small apartment in the city",
+      "Working in a creative, finance or tech industry for which new York is famous "
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Playing basketball",
+      "Going to the gym"
+    ],
+    "Extrapolated" : [
+      "Staying active and maintaining physical health",
+      "Enjoying sports and competition",
+      "Possibly interested in other physical activities or team sports"
+      "Watching NBA games and following favorite teams/players such as Montana Grizzlies and New York Knicks",
+      "Interested in joining a recreational basketball league in the city"
+    ],
+    "Wild Guess" : [
+      "May also enjoy other forms of exercise such as hiking or cycling",
+      "May want to visit national parks or outdoor areas near New York City",
+    ]
+  }
+}
+-----------------------
+Now for this user profile
+-----------------------
+User : Age 30, recently married, enjoys cooking and gardening in their free time. 
+
+return as many different detailed interests and situation/need they are in as you can in 3 categories - Given, Extrapolated, Wild Guess. IN the given JSON format and don;t limit yourself to the example given above, you can add as many as you can think of.
+{
+  "Situation" : {
+    "Given" : [
+      
+    ],
+    "Extrapolated" : [
+      
+    ],
+    "Wild Guess" : [
+      
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      
+    ],
+    "Extrapolated" : [
+      
+    ],
+    "Wild Guess" : [
+      
+    ]
+  }
+}
+"""
+
+llm = GoogleGenerativeAI(model="gemini-pro")  # type: ignore
+
+
+async def main():
+    # llm = OpenAI(openai_api_key="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")  # type: ignore
+    try:
+        result1 = llm.invoke(interestSuggestionAgent)
+        # input2 = (
+        #     "improve upon this, and make it more detailed, reutrn back in exact same format "
+        #     + str(result1)
+        # )
+        # print("input 2 begains" + input2)
+        # print("input 2 ends")
+
+        # result2 = llm.invoke(input2)
+        with open("output.txt", "a+") as file:
+            file.write(result1)
+            file.write(",\n")
+
+        print(result1)
+        print("result2")
+        # print(result2)``
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+asyncio.run(main())

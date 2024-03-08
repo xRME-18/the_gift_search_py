@@ -7,7 +7,7 @@ from langchain.prompts import PromptTemplate
 from langchain_google_genai import GoogleGenerativeAI
 from flask_cors import CORS
 from langchain_community.llms import openai
-from utils import generate_embeddings
+from utils import generate_local_embeddings
 from utils import generateRandomStringId
 
 pc = Pinecone()
@@ -124,7 +124,7 @@ async def addProduct():
 
     # Generate embedding using Google Generative AI
     # vectors = await embeddings.aembed_documents(str(refined_prompt))
-    vectors = generate_embeddings(str(refined_prompt))
+    vectors = generate_local_embeddings(str(refined_prompt))
 
     query_response = index.query(
         namespace="from-GIST-small",
