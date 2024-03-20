@@ -3782,4 +3782,281 @@
             ]
         }
     ]
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoys the outdoors and nature",
+      "May have a garden or patio space",
+      "Possibly interested in sustainable living",
+      "Could work in a creative field or own a small business",
+      "May enjoy attending local farmers' markets and events"
+    ],
+    "Wild Guess" : [
+      "May be a member of a community garden or gardening group",
+      "Could live in a house or apartment with a backyard or balcony",
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Reading",
+      "Tea"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and nurturing things",
+      "Appreciates beauty and aesthetics",
+      "Values health and well-being",
+      "May be interested in food and wine pairings",
+      "Could enjoy visiting botanical gardens, art galleries, or fashion shows"
+    ],
+    "Wild Guess" : [
+      "May also be interested in home décor and interior design",
+      "Could have a collection of teacups or teapots",
+      "May enjoy attending cooking classes or workshops",
+    ]
+  }
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoying the temperate climate and outdoor lifestyle of San Francisco",
+      "Possibly working in a creative field or tech industry",
+      "May be interested in sustainability and environmental issues",
+      "May have a small garden or patio for gardening"
+    ],
+    "Wild Guess" : [
+      "Living in a Victorian-style house or apartment",
+      "Working in a creative, finance or tech industry for which new York is famous "
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Reading",
+      "Tea"
+    ],
+    "Extrapolated" : [
+      "Enjoying the outdoors and nature",
+      "Experimenting with different cuisines and flavors",
+      "Keeping up with fashion trends and styles",
+      "Exploring different genres and authors of books",
+      "Relaxing and unwinding with a cup of tea",
+      "May enjoy visiting local nurseries, farmers' markets, and tea shops",
+      "May be interested in learning about organic gardening and sustainable practices",
+      "May enjoy trying new restaurants and cooking classes",
+      "May be interested in fashion design or styling",
+      "May enjoy attending book clubs or literary events"
+    ],
+    "Wild Guess" : [
+      "May also enjoy other forms of art and creativity, such as painting or photography",
+      "May be interested in traveling to different countries to experience different cultures and cuisines",
+      "May enjoy reading books on gardening, cooking, fashion, and tea"
+    ]
+  }
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoys the temperate climate and diverse culture of San Francisco",
+      "Possibly interested in outdoor activities like hiking, biking or visiting parks or beaches",
+      "May be exposed to various culinary scenes and food cultures in San Francisco",
+      "May have a busy lifestyle and appreciate the convenience and amenities of city living"
+    ],
+    "Wild Guess" : [
+      "May be working in a creative field such as technology or design",
+      "May be interested in attending cultural events, art exhibitions or music festivals in San Francisco"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Reading",
+      "Tea"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and nurturing a beautiful space",
+      "Appreciates the art of preparing and sharing food",
+      "Has an eye for aesthetics and enjoys expressing herself through fashion",
+      "Finds joy and relaxation in reading",
+      "Values the ritual and comfort of tea",
+    ],
+    "Wild Guess" : [
+      "May be interested in learning about sustainable gardening practices or organic farming",
+      "May enjoy cooking classes or workshops to enhance her culinary skills",
+      "May follow fashion trends and attend fashion shows or read fashion magazines",
+      "May prefer classic literature or enjoy exploring different genres and authors",
+      "May collect teacups or teapots, or enjoy visiting tea rooms and cafes"
+    ]
+  }
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoys the outdoors and nature",
+      "May have a balcony or backyard for gardening",
+      "Possibly interested in sustainability and environmental issues"
+    ],
+    "Wild Guess" : [
+      "May be working in the tech industry",
+      "May be interested in attending local farmers' markets",
+      "May enjoy visiting botanical gardens or parks in the city"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Reading",
+      "Tea"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and nurturing things",
+      "May be interested in hosting dinner parties or cooking for friends",
+      "Keeps up with fashion trends and enjoys shopping",
+      "May have a favorite bookstore or library",
+      "Enjoys trying different teas and learning about their origins"
+    ],
+    "Wild Guess" : [
+      "May also enjoy painting or other creative hobbies",
+      "May be interested in attending cooking classes or workshops",
+      "May be interested in fashion design or working in the fashion industry"
+    ]
+  }
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoys the outdoors and nature",
+      "Appreciates the beauty and diversity of the city",
+      "May be exposed to different cultures and lifestyles",
+      "Possibly works in a creative or tech industry"
+    ],
+    "Wild Guess" : [
+      "Lives in a Victorian or Edwardian house",
+      "Enjoys attending cultural events such as art exhibitions or concerts",
+      "May have a small garden or balcony where she grows herbs or flowers"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Reading",
+      "Tea"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and nurturing things",
+      "Appreciates the art and science of cooking",
+      "Interested in aesthetics and self-expression",
+      "Finds solace and inspiration in literature",
+      "Values relaxation and self-care"
+    ],
+    "Wild Guess" : [
+      "May also enjoy painting or drawing",
+      "Interested in sustainable and organic living",
+      "Loves to travel and experience different cultures"
+    ]
+  }
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoys the vibrant and diverse culture of San Francisco",
+      "Has a relatively high income and standard of living",
+      "Possibly works in a tech or creative industry",
+      "May have a small outdoor space or balcony for gardening",
+      "Likely enjoys exploring the city's many parks and green spaces"
+    ],
+    "Wild Guess" : [
+      "Owns or rents a house or apartment in a trendy neighborhood",
+      "Frequents local farmers markets and organic grocery stores",
+      "Is active in the community and may volunteer her time"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Bookworm",
+      "Loves tea"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and nurturing a beautiful space",
+      "Appreciates fresh, healthy, and delicious food",
+      "Has an eye for style and design",
+      "Enjoys reading and learning new things",
+      "Finds comfort and relaxation in tea drinking"
+    ],
+    "Wild Guess" : [
+      "May also enjoy other creative hobbies such as painting or photography",
+      "Likely attends fashion shows or events",
+      "Collects books or teacups",
+      "May be interested in herbalism or holistic health"
+    ]
+  }
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoys the outdoors and access to nature",
+      "May be interested in sustainable living and environmental issues",
+      "May be working in a creative or tech industry",
+      "May be part of a community garden or gardening group",
+      "May have a balcony or outdoor area for gardening"
+    ],
+    "Wild Guess" : [
+      "May be interested in attending farmers markets and local food events",
+      "May enjoy visiting botanical gardens or arboretums",
+      "May be interested in volunteering for environmental organizations"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Books",
+      "Tea"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating and nurturing things",
+      "May have a passion for home decor and interior design",
+      "May enjoy hosting dinner parties or gatherings",
+      "May be interested in food photography or culinary arts",
+      "May be interested in attending fashion shows or reading fashion magazines",
+      "May be interested in writing or reading about books and literature",
+      "May be interested in attending tea ceremonies or joining a tea club",
+      "May enjoy collecting different types of tea or teaware",
+      "May enjoy visiting bookstores or libraries"
+    ],
+    "Wild Guess" : [
+      "May be interested in starting a blog or online community related to gardening, cooking, fashion, or books",
+      "May enjoy taking classes or workshops related to her interests",
+      "May be interested in traveling to regions known for their tea culture or fashion"
+    ]
+  }
 },

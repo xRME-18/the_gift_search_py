@@ -9,15 +9,16 @@ from flask_cors import CORS
 from langchain_community.llms import openai
 from utils import generate_local_embeddings
 from utils import generateRandomStringId
+from prompts import interestSuggestionAgent, consolidateInterests
 
 pc = Pinecone()
 embeddings = GoogleGenerativeAIEmbeddings(
     model="models/embedding-001",
-)
+)  # type: ignore
 # embeddings = embeddings.openai_langchain_embeddings()
 
 model = genai.GenerativeModel(model_name="gemini-pro")
-llm = GoogleGenerativeAI(model="gemini-pro")
+llm = GoogleGenerativeAI(model="gemini-pro")  # type: ignore
 
 text = """
 Imagine you're a social anthropologist studying a fascinating individual. Tell me everything you can learn about them. First extrapolate using the interests mentioned, then combine those multiple interests together and then extrapolate using that.
@@ -111,32 +112,208 @@ async def addProduct():
     metadata = payload["metadata"]
 
     # LLM_prompt = refine_user_prompt_template.format(user_description=user_prompt)
-    LLM_prompt = text + user_prompt
+    LLM_prompt = interestSuggestionAgent + user_prompt
 
     # Refine user prompt using Google Generative AI
     # refined_prompt = await model.aquery(LLM_prompt)
-    refined_prompt = llm.invoke(LLM_prompt)
-
-    print(refined_prompt)
+    refined_prompt = ""
+    user_profile = {}
+    try:
+        refined_prompt = llm.invoke(LLM_prompt)
+        user_profile = json.loads(refined_prompt)
+    except Exception as e:
+        print(e)
 
     with open("./LLM_generated_ProductDIscovery.json", "a+") as file:
         file.write(f"{refined_prompt},")
 
+    del user_profile["Interests"]["Given"]
+    del user_profile["Situation"]["Given"]
+    user_profile_string = json.dumps(user_profile)
+
+    consolidateInterestResult = {}
+    try:
+        consolidateInterestResult = llm.invoke(
+            consolidateInterests + user_profile_string
+        )
+        consolidateInterestResult = json.loads(consolidateInterestResult)
+    except Exception as e:
+        print(e)
+
     # Generate embedding using Google Generative AI
     # vectors = await embeddings.aembed_documents(str(refined_prompt))
-    vectors = generate_local_embeddings(str(refined_prompt))
+    # vectors = generate_local_embeddings(str(refined_prompt))
+    # situation_given = user_profile["Situation"]["Given"]
+    situation_extrapolated = user_profile["Situation"]["Extrapolated"]
+    situation_wild_guess = user_profile["Situation"]["Wild Guess"]
 
+    # interests_given = user_profile["Interests"]["Given"]
+    interests_extrapolated = user_profile["Interests"]["Extrapolated"]
+    interests_wild_guess = user_profile["Interests"]["Wild Guess"]
+    productList = []
+
+    # for i in range(len(situation_given)):
+    #     vectors = generate_local_embeddings(situation_given[i])
+    #     query_response = index.query(
+    #         namespace="from-GIST-small",
+    #         vector=vectors,
+    #         top_k=2,
+    #         # include_values=True,
+    #         include_metadata=True,
+    #     )
+    #     matches = query_response["matches"]
+    #     for match in matches:
+    #         id = match["id"]
+    #         url = match["metadata"]["url"]
+    #         description = match["metadata"]["description"]
+    #         product = match["metadata"]["product"]
+
+    #         productList.append(
+    #             {
+    #                 "interest/situation": situation_given[i],
+    #                 "id": id,
+    #                 "url": url,
+    #                 "description": description,
+    #                 "product": product,
+    #             }
+    #         )
+    for i in range(len(situation_extrapolated)):
+        vectors = generate_local_embeddings(situation_extrapolated[i])
+        query_response = index.query(
+            namespace="from-GIST-small",
+            vector=vectors,
+            top_k=2,
+            # include_values=True,
+            include_metadata=True,
+        )
+        matches = query_response["matches"]
+        for match in matches:
+            id = match["id"]
+            url = match["metadata"]["url"]
+            description = match["metadata"]["description"]
+            product = match["metadata"]["product"]
+
+            productList.append(
+                {
+                    "interest/situation": situation_extrapolated[i],
+                    "id": id,
+                    "url": url,
+                    "description": description,
+                    "product": product,
+                }
+            )
+    for i in range(len(situation_wild_guess)):
+        vectors = generate_local_embeddings(situation_wild_guess[i])
+        query_response = index.query(
+            namespace="from-GIST-small",
+            vector=vectors,
+            top_k=2,
+            # include_values=True,
+            include_metadata=True,
+        )
+        matches = query_response["matches"]
+        for match in matches:
+            id = match["id"]
+            url = match["metadata"]["url"]
+            description = match["metadata"]["description"]
+            product = match["metadata"]["product"]
+
+            productList.append(
+                {
+                    "interest/situation": situation_wild_guess[i],
+                    "id": id,
+                    "url": url,
+                    "description": description,
+                    "product": product,
+                }
+            )
+    # for i in range(len(interests_given)):
+    #     vectors = generate_local_embeddings(interests_given[i])
+    #     query_response = index.query(
+    #         namespace="from-GIST-small",
+    #         vector=vectors,
+    #         top_k=2,
+    #         # include_values=True,
+    #         include_metadata=True,
+    #     )
+    #     matches = query_response["matches"]
+    #     for match in matches:
+    #         id = match["id"]
+    #         url = match["metadata"]["url"]
+    #         description = match["metadata"]["description"]
+    #         product = match["metadata"]["product"]
+
+    #         productList.append(
+    #             {
+    #                 "interest/situation": interests_given[i],
+    #                 "id": id,
+    #                 "url": url,
+    #                 "description": description,
+    #                 "product": product,
+    #             }
+    #         )
+    for i in range(len(interests_extrapolated)):
+        vectors = generate_local_embeddings(interests_extrapolated[i])
+        query_response = index.query(
+            namespace="from-GIST-small",
+            vector=vectors,
+            top_k=2,
+            # include_values=True,
+            include_metadata=True,
+        )
+        matches = query_response["matches"]
+        for match in matches:
+            id = match["id"]
+            url = match["metadata"]["url"]
+            description = match["metadata"]["description"]
+            product = match["metadata"]["product"]
+
+            productList.append(
+                {
+                    "interest/situation": interests_extrapolated[i],
+                    "id": id,
+                    "url": url,
+                    "description": description,
+                    "product": product,
+                }
+            )
+    for i in range(len(interests_wild_guess)):
+        vectors = generate_local_embeddings(interests_wild_guess[i])
+        query_response = index.query(
+            namespace="from-GIST-small",
+            vector=vectors,
+            top_k=2,
+            # include_values=True,
+            include_metadata=True,
+        )
+        matches = query_response["matches"]
+        for match in matches:
+            id = match["id"]
+            url = match["metadata"]["url"]
+            description = match["metadata"]["description"]
+            product = match["metadata"]["product"]
+
+            productList.append(
+                {
+                    "interest/situation": interests_wild_guess[i],
+                    "id": id,
+                    "url": url,
+                    "description": description,
+                    "product": product,
+                }
+            )
+    consolidateInterestResult_string = ""
+    for key in consolidateInterestResult:
+      
+    vectors = generate_local_embeddings(consolidateInterestResult_string)
     query_response = index.query(
         namespace="from-GIST-small",
         vector=vectors,
-        top_k=10,
+        top_k=2,
         # include_values=True,
         include_metadata=True,
     )
-    # print(query_response)
-
     matches = query_response["matches"]
-    productList = []
     for match in matches:
         id = match["id"]
         url = match["metadata"]["url"]
@@ -144,8 +321,18 @@ async def addProduct():
         product = match["metadata"]["product"]
 
         productList.append(
-            {"id": id, "url": url, "description": description, "product": product}
+            {
+                "interest/situation": consolidateInterestResult_string,
+                "id": id,
+                "url": url,
+                "description": description,
+                "product": product,
+            }
         )
 
-    print(productList)
+    # Write productList to a file
+    with open("product_list.jsonl", "a+") as file:
+        json.dump(productList, file)
+
+    # print(productList)
     return json.dumps(productList)

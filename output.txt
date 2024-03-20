@@ -785,3 +785,96 @@ User : Age 30, recently married, enjoys cooking and gardening in their free time
     ]
   }
 },
+User: Age 35, male, works as a software engineer in Silicon Valley, likes to play video games and watch movies.
+-----------------------
+{
+  "Situation" : {
+    "Given" : [
+      "Age 35",
+      "Male",
+      "Works as a software engineer in Silicon Valley"
+    ],
+    "Extrapolated" : [
+      "Likely has a high income and stable career",
+      "Works long hours and may experience stress or burnout",
+      "Lives in a suburban or urban area with a high cost of living",
+      "May be interested in technology, innovation, and the latest gadgets"
+    ],
+    "Wild Guess" : [
+      "May be married or in a long-term relationship",
+      "Owns a home or apartment with a mortgage",
+      "Has a social circle that includes other tech professionals"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Playing video games",
+      "Watching movies"
+    ],
+    "Extrapolated" : [
+      "Enjoys escaping into immersive and entertaining worlds",
+      "May have favorite genres or specific games/movies that they follow",
+      "Could be interested in attending gaming conventions or movie premieres",
+      "May enjoy discussing and analyzing movies or video games with friends or online communities"
+    ],
+    "Wild Guess" : [
+      "May also enjoy reading science fiction or fantasy books",
+      "Could be interested in collecting video games or movie memorabilia",
+      "May have a home entertainment system with a large TV and surround sound"
+    ]
+  }
+},
+```
+{
+  "Situation": {
+    "Given": ["Age 30", "Recently married"],
+    "Extrapolated": ["Likely just starting a family", "Might have recently purchased a home", "Experiencing a significant life change"],
+    "Wild Guess": ["Lives in a suburban or rural area", "Works in a stable career", "Owns a pet"]
+  },
+  "Interests": {
+    "Given": ["Cooking", "Gardening"],
+    "Extrapolated": ["Values home life and creating a comfortable space", "Enjoys nature and being outdoors", "Might be interested in local farmers' markets or cooking classes"],
+    "Wild Guess": ["Could be interested in homesteading or sustainable living", "Might have a green thumb and enjoy landscaping"]
+  }
+}
+```,
+{
+  "Situation" : {
+    "Given" : [
+      "Age 30",
+      "Recently married"
+    ],
+    "Extrapolated" : [
+      "Adjusting to married life and sharing responsibilities",
+      "Possibly starting a family or planning for the future",
+      "Seeking a stable home and community",
+      "Balancing work and personal life",
+      "Enjoying the companionship and support of a partner",
+      "Experiencing new challenges and growth as a couple"
+    ],
+    "Wild Guess" : [
+      "Living in a house or apartment with a backyard or outdoor space",
+      "Working in a field related to their interests or passions",
+      "Having a close-knit group of friends or family nearby"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Cooking",
+      "Gardening"
+    ],
+    "Extrapolated" : [
+      "Enjoying the creative process and experimenting with flavors",
+      "Appreciating fresh, home-grown produce",
+      "Finding relaxation and mindfulness in nature",
+      "Possibly interested in food-related activities such as attending cooking classes or visiting farmers markets",
+      "Enjoying the outdoors and spending time in green spaces",
+      "Possibly interested in volunteering or participating in community gardening projects"
+    ],
+    "Wild Guess" : [
+      "May also enjoy other creative activities such as painting or writing",
+      "May have an interest in sustainable living or environmental issues",
+      "May enjoy spending time in nature, hiking or exploring parks"
+    ]
+  }
+},

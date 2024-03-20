@@ -1,6 +1,7 @@
 from langchain_google_genai import GoogleGenerativeAI
 from langchain_openai import OpenAI
 import asyncio
+from prompts import interestSuggestionPrompt2, refiedPromptUisngGPT
 
 prompt = """
 give this product description, 
@@ -161,11 +162,13 @@ and return only the answer in JSON format
 make sure to not add any details which cannot be extrapolated from the given input and for every extrapolation provide a reasoning for the same.
 only return the JSON object, nothing else
 The user_description is as follows :
+
 """
 
 # User Profile - Occassion, Interests [Given, Extrapolated, Wild Guess], Age
 interestSuggestionAgent = """
-You are someone who has studied human needs and interests for a long period, you have a deep understanding of human psychology and you can extrapolate the interests, situation they are in currently based on the informatiin provided and even extrapolate other interests,needs and situation based on the given information. You need to provide this analysis in 3 parts 1) Given - This is extracted from the information provided 2) Extrapolated - This is the information that can be extrapolated from the given information 3) Wild Guess - This is the information that is a wild guess which may or may not be accurate but is accurate based on general knowledge which can extrapolated to form the given information taking some assumptions don't just give random guesses . You need to provide this information in the JSON format.
+You are someone who has studied human needs and interests for a long period, you have a deep understanding of human psychology and you can extrapolate the interests, situation they are in currently based on the informatiin provided and even extrapolate other interests,needs and situation based on the given information. You need to provide this analysis in 3 parts 1) Given - This is extracted from the information provided 2) Extrapolated - This is the information that can be extrapolated from the given information 3) Wild Guess - This is the information that is a wild guess which may or may not be accurate but is accurate based on general knowledge which can extrapolated to form the given information taking some assumptions don't just give random guesses.  
+You need to provide this information in the JSON format.
 -----------------------
 Example : 
 User : Age 25 from montana, recently moved to New York City, likes to play basketball and go to the gym.
@@ -238,19 +241,21 @@ return as many different detailed interests and situation/need they are in as yo
 }
 """
 
+# add a scale to extrapolated and wild guess and try different values till you get the best result
+
 llm = GoogleGenerativeAI(model="gemini-pro")  # type: ignore
+# llm = OpenAI(openai_api_key="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")  # type: ignore
 
 
 async def main():
-    # llm = OpenAI(openai_api_key="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")  # type: ignore
     try:
-        result1 = llm.invoke(interestSuggestionAgent)
-        # input2 = (
-        #     "improve upon this, and make it more detailed, reutrn back in exact same format "
-        #     + str(result1)
-        # )
-        # print("input 2 begains" + input2)
-        # print("input 2 ends")
+        result1 = llm.invoke(refiedPromptUisngGPT)
+        input2 = (
+            "improve upon this, and make it more detailed, reutrn back in exact same format "
+            + str(result1)
+        )
+        print("input 2 begains" + input2)
+        print("input 2 ends")
 
         # result2 = llm.invoke(input2)
         with open("output.txt", "a+") as file:

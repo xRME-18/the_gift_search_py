@@ -29,7 +29,6 @@ def addEmbeddingsToPinecone(payload):
     # vectors = embeddings.embed_documents(data)
 
     vectors = generate_embeddings(data)
-    print(type(vectors))
 
     pineCodeVectors = []
     # !TODO make sure the metadata size is less then 4096 bytes
