@@ -1,3 +1,4 @@
+from ast import Tuple
 import json
 
 import sys
@@ -77,7 +78,7 @@ def checkProductExist(product):
     return None
 
 
-def addAdditionalFeatures(genericProduct, product) -> object:
+def addAdditionalFeatures(genericProduct, product):
     # extract additional features and add to listing
 
     additionalFeatures = None
@@ -117,7 +118,7 @@ def addAdditionalFeatures(genericProduct, product) -> object:
                 genericProduct["additionalFeatures"].update(additionalFeatures)
             else:
                 genericProduct["additionalFeatures"] = additionalFeatures
-            return genericProduct
+            return (genericProduct, additionalFeatures)
         except Exception:
             if retry < max_retries - 1:
                 print("Error occurred. Retrying...")
@@ -177,33 +178,6 @@ def saveProduct(genericProduct, product) -> bool:
     db = client["cluster0"]
     collection = db["products"]
     collection.insert_one(product)
-    # collection.insert_one(
-    #     {
-    #         "data": {
-    #             "product": "Pendant Ceramic Lamp",
-    #             "description": "Handmade hanging ceiling lamp featuring a unique design with printed decoration of green leaves. Crafted from clay, this light fixture is a piece of art, suitable for living room centers and offices. The lamp comes in various colors and has a height of 17.7 inches and a diameter of 7.9 inches.",
-    #             "targetAudience": [
-    #                 {
-    #                     "targetAudience": "Interior designers and home decorators",
-    #                     "useCase": "Adding a unique and stylish lighting fixture to a living room, office, or other space.",
-    #                 },
-    #                 {
-    #                     "targetAudience": "Art collectors",
-    #                     "useCase": "Displaying the lamp as a piece of art in a home or gallery.",
-    #                 },
-    #                 {
-    #                     "targetAudience": "People who appreciate handmade and unique items",
-    #                     "useCase": "Adding a touch of personality and style to their home with a one-of-a-kind lighting fixture.",
-    #                 },
-    #             ],
-    #         },
-    #         "metadata": {
-    #             "url": "https://www.etsy.com/listing/724851215/pendant-ceramic-lamp-hanging-ceiling?click_key=bbd6dcdb3b7f27cd427fa99cb073862a0ea919a0%3A724851215&click_sum=2ab64d42&ref=stl_listing-1",
-    #             "dateCreated": "2024-02-18T22:31:55.943816",
-    #             "productId": "EfJOyTJcIJ",
-    #         },
-    #     }
-    # )
     return True
 
 
@@ -221,12 +195,24 @@ def addFile(numbers) -> None:
 
         # Now you can work with the loaded JSON data as a list
         for i, product in enumerate(json_data):
-            print("Adding {i}th item to Pinecone" + "\n")
+            print(f"Adding {i}th item to Pinecone" + "\n")
             productTemp = product
             del productTemp["productId"], productTemp["url"]
 
             # check if the generic product already exist in db
-            genericProduct = checkProductExist(productTemp)
+            genericProduct = None
+            for retry in range(max_retries):
+                try:
+                    genericProduct = checkProductExist(productTemp)
+                    break
+                except Exception as e:
+                    if retry < max_retries - 1:
+                        print("Error checking product existence: {e}. Retrying...")
+                    else:
+                        print("Max retries exceeded. Error handling logic here.")
+                        raise Exception(
+                            "Max retries exceeded. Error handling logic here."
+                        )
 
             # if yes => extract additional features and add to listing
             if genericProduct is not None:
@@ -236,15 +222,48 @@ def addFile(numbers) -> None:
                     genericProductDesc["productId"],
                     genericProductDesc["dateCreated"],
                 )
-                genericProduct = addAdditionalFeatures(genericProductDesc, productTemp)
+                result = None
+                for retry in range(max_retries):
+                    try:
+                        result = addAdditionalFeatures(genericProductDesc, productTemp)
+                        break
+                    except Exception as e:
+                        if retry < max_retries - 1:
+                            print("Error adding additional features: {e}. Retrying...")
+                        else:
+                            print("Max retries exceeded. Error handling logic here.")
+                            raise Exception(
+                                "Max retries exceeded. Error handling logic here."
+                            )
+                if result is not None:
+                    genericProduct, additionalFeatures = result
+                    product["additionalFeatures"] = additionalFeatures
             # if no => generate generic product and features and add to listing
             else:
-                genericProduct = generateGenericProduct(productTemp)
+                genericProduct = None
+                for retry in range(max_retries):
+                    try:
+                        genericProduct = generateGenericProduct(productTemp)
+                        break
+                    except Exception as e:
+                        if retry < max_retries - 1:
+                            print("Error generating generic product: {e}. Retrying...")
+                        else:
+                            print("Max retries exceeded. Error handling logic here.")
+                            raise Exception(
+                                "Max retries exceeded. Error handling logic here."
+                            )
+
+                product["additionalFeatures"] = genericProduct["additionalFeatures"]
             # save all product details to another db
 
             print("genericProduct " + str(genericProduct) + "\n")
             print("product " + str(product))
-            saveProduct(genericProduct, product)
+
+            try:
+                saveProduct(genericProduct, product)
+            except Exception as e:
+                print("Error saving product: " + str(e))
             print("Added {i}th item to Pinecone" + "\n")
 
 
