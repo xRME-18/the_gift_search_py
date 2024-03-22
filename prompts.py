@@ -199,11 +199,15 @@ user Profile :
 
 
 genericProductSimilarityPrompt = """
-You are a product catelog expert, you need to determin if the given product is similar to generic product or not. You need to use these criteriass to determine the similarity
-- If the consumer has already made up his mind to buy a specific product, are these 2 products similar enough that the consumer would consider buying the generic product instead of the specific product? for Example, if the consume needs Eletric bycicle, and the generic product is a normal bycicle, then the generic product is not similar to the specific product. Its only similar if there is a minor feature in specific product different from generic product
+You are a product catelog expert, you need to determine if the given product is similar to generic product or not. You need to use these criteriass to determine the similarity
+- If the consumer has already made up his mind to buy a specific product, are these 2 products similar enough that the consumer would consider buying the generic product instead of the specific product? for Example, if the consume needs Eletric bycicle, and the generic product is a normal bycicle, then the generic product is not similar to the specific product.
+- Its only similar if there is a minor feature in specific product different from generic product and they are generally called by the generic product name or generic product with x feature
 return the answer as a boolean value only. Don't return any other information.
-Product : {product}
-Generic Product : {genericProduct}
+Product : 
+{product}
+
+Generic Product : 
+{genericProduct}
 """
 
 additionalFeaturesPrompt = """
@@ -211,38 +215,54 @@ You are a product catelog expert, you need to extract additional features from t
 {product} 
 that are not present in the generic product and the list of additional features .
 {genericProduct}
-You need to return the additional features in the JSON format.
-{
+You need to return the additional features in the JSON format as given only.
+{{
   "additionalFeatures" : [
     "feature1",
     "feature2",
     "feature3"
     # add all not present in the generic product
   ]
-}
+}}
 """
 
 addAdditionalFeaturesPrompt = """
-You are a product catelog expert, you need to add the additional features to the generic product list of additional features
-generic product : 
-{genericProduct}
+You are a product catalog expert. Your task is to add the additional features to the list of existing additional features for a generic product.
 
-newAdditionalFeatures :
+Current Additional Features:
+{currentAdditionalFeatures}
+
+New Additional Features:
 {additionalFeatures}
 
-You need to check if these features already exist in generic product, and update the list of new additional features to only include new and different ones, that those given in generic product. Return the updated list of additional features in the JSON format same as input.
+You need to check if these features already exist in the current additional features list. Update the list of new additional features to only include new and different features. Return the updated list of additional features in the JSON format, same as the input.
+
+Output Requirements:
+{{
+  "additionalFeatures": [
+    "feature1",
+    "feature2",
+    "feature3"
+  ]
+}}
+Just return the JSON format as output, nothing else.
 """
 
 extractGenericProductPrompt = """
-Using the detailed description of a product provided below, generate a concise generic product description and then create a list of unique features that distinguish this product from its competitors.
+Using the detailed description of a product provided below, generate a concise generic product description and then create a list of unique features that distinguish this product from its competitors and are unique to this product.
 
-Detailed Product Description:
+Product:
 {product}
 
 Output Requirements:
-{
-  "Generic Product Description": "Provide a generic description of the product without brand-specific features or unique selling points.",
-  "Unique Features List": ["feature1", "feature2", "feature3"]
-}
-Just return the JSON format as output, nothing else
+{{
+    "product": "Name of the generic Product",
+    "Description": "Provide a generic description of the product without brand-specific features or unique selling points.",
+    "additionalFeatures": [
+        "Feature 1",
+        "Feature 2",
+        "Feature 3"
+    ]
+}}
+Just return the JSON format as output, nothing else. 
 """

@@ -1,7 +1,7 @@
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
 from pinecone import Pinecone, ServerlessSpec
-from localEmbeddings import generate_embeddings
+from utils import generate_local_embeddings, generateRandomStringId
 
 
 from utils import generateRandomStringId
@@ -28,7 +28,7 @@ def addEmbeddingsToPinecone(payload):
     # Generate embedding using Google Generative AI
     # vectors = embeddings.embed_documents(data)
 
-    vectors = generate_embeddings(data)
+    vectors = generate_local_embeddings(data)
 
     pineCodeVectors = []
     # !TODO make sure the metadata size is less then 4096 bytes
