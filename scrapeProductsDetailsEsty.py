@@ -9,9 +9,7 @@ from utils import generateRandomStringId
 def scrape_file(number):
     product_links = {"links": []}
     # commented so as not to make requests accidentally
-    with open(
-        "./productLinks/EstyPersonalisedGiftLinks" + str(number) + ".json", "r"
-    ) as file:
+    with open("./productLinks/EstyLinks" + str(number) + ".json", "r") as file:
         links = json.load(file)
 
         for link in links:
@@ -30,9 +28,7 @@ def scrape_file(number):
     all_products = []
 
     with open(
-        "./scrappedProductDescription/EstyPersonalisedGiftDescription"
-        + str(number)
-        + ".json",
+        "./scrappedProductDescription/EstyDetails" + str(number) + ".json",
         "a+",
     ) as file:
         for index, link in enumerate(links):
@@ -76,14 +72,14 @@ def scrape_file(number):
 
             try:
                 soup = BeautifulSoup(response.text, "html.parser")
-                print("Soup created")
+                # print("Soup created")
 
                 title_elements = soup.find_all(
                     "h1",
                     class_="wt-text-body-01 wt-line-height-tight wt-break-word wt-mt-xs-1",
                 )
                 title = [title.get_text(strip=True) for title in title_elements][0]
-                print("Title extracted")
+                # print("Title extracted")
 
                 # Extracting descriptions
                 description_elements = soup.find_all(
@@ -93,7 +89,7 @@ def scrape_file(number):
                     description.get_text(strip=True)
                     for description in description_elements
                 ][0]
-                print("Description extracted")
+                # print("Description extracted")
 
                 # Extracting reviews
                 reviews_elements = soup.find_all(
@@ -101,7 +97,7 @@ def scrape_file(number):
                     class_="wt-text-truncate--multi-line wt-break-word wt-text-body",
                 )
                 reviews = [review.get_text(strip=True) for review in reviews_elements]
-                print("Reviews extracted")
+                # print("Reviews extracted")
 
                 product_details = {
                     "productId": generateRandomStringId(),
@@ -110,15 +106,15 @@ def scrape_file(number):
                     "description": description,
                     "reviews": reviews,
                 }
-                print(f"Product details: {product_details}")
+                # print(f"Product details: {product_details}")
                 json.dump(product_details, file)
-                print("Product details dumped to file")
+                # print("Product details dumped to file")
             except Exception as e:
                 print(f"An error occurred while scraping: {str(e)}")
             # all_products.append(product_details)
             # print(f"Product {index + 1} title: {title}")
 
 
-for number in range(9, 14):
+for number in range(1, 17):
     scrape_file(str(number))
 # scrape_file(9)

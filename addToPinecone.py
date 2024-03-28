@@ -10,7 +10,7 @@ from utils import generateRandomStringId
 pc = Pinecone()
 embeddings = GoogleGenerativeAIEmbeddings(
     model="models/embedding-001",
-)
+)  # type: ignore
 model = genai.GenerativeModel(model_name="gemini-pro")
 index = pc.Index("tgs-cgp-index")
 # Load the tokenizer
@@ -37,7 +37,8 @@ def addEmbeddingsToPinecone(payload):
     pineCodeVectors.append((metadata["productId"], vectors, metadata))
 
     # Index the embedding
-    index.upsert(
-        pineCodeVectors,
-        namespace="from-GIST-small",
-    )
+    if index is not None:
+        index.upsert(
+            pineCodeVectors,
+            namespace="from-GIST-small",
+        )

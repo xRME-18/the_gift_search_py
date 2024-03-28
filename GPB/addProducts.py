@@ -31,7 +31,9 @@ except Exception as e:
     print(e)
 pc = Pinecone()
 index = pc.Index("tgs-cgp-index")
-llm = GoogleGenerativeAI(model="gemini-pro")  # type: ignore
+# llm = GoogleGenerativeAI(model="gemini-pro")  # type: ignore
+llm = GoogleGenerativeAI(model="gemini-1.5-pro-latest")  # type: ignore
+
 max_retries = 3
 
 
@@ -196,17 +198,12 @@ def saveProduct(genericProduct, product, newGenericProduct: bool) -> bool:
 
 # Specify the path to your JSON file
 def addFile(numbers) -> None:
-    file_path = (
-        "./../scrappedProductDescription/EstyPersonalisedGiftDescription"
-        + str(numbers)
-        + ".json"
-    )
+    file_path = "./../scrappedProductDescription/EstyDetails" + str(numbers) + ".json"
 
     # Open the file and load the JSON data
     with open(file_path, "r") as file:
         json_data = json.load(file)
 
-        # Now you can work with the loaded JSON data as a list
         for i, product in enumerate(json_data):
             try:
                 print(f"Adding {i}th item to Pinecone" + "\n")
@@ -297,5 +294,5 @@ def addFile(numbers) -> None:
 # 3rd file 16rh failed
 # 4th 14th failed
 # 5th 8th failed
-for i in range(6, 14):
+for i in range(5, 10):
     addFile(i)

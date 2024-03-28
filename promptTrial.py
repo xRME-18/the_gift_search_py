@@ -243,7 +243,10 @@ return as many different detailed interests and situation/need they are in as yo
 
 # add a scale to extrapolated and wild guess and try different values till you get the best result
 
-llm = GoogleGenerativeAI(model="gemini-pro")  # type: ignore
+llm = GoogleGenerativeAI(
+    model="gemini-1.5-pro-latest",
+    google_api_key="AIzaSyAq2iWsgxEXYUPbPnApdDOl0JEa9tvw2Ks",
+)  # type: ignore
 # llm = OpenAI(openai_api_key="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")  # type: ignore
 
 

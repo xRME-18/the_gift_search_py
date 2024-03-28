@@ -5,8 +5,8 @@ from pinecone import Pinecone, ServerlessSpec
 from transformers import AutoModel, AutoTokenizer
 
 
-tokenizer = AutoTokenizer.from_pretrained("./fineTuning/Tokeniser")
-model = AutoModel.from_pretrained("./fineTuning/Model")
+tokenizer = AutoTokenizer.from_pretrained("./../fineTuning/Tokeniser")
+model = AutoModel.from_pretrained("./../fineTuning/Model")
 
 
 def generate_local_embeddings(text):

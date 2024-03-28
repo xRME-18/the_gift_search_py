@@ -4611,4 +4611,42 @@
       "May want to travel to national parks or wilderness areas for extended outdoor adventures"
     ]
   }
+},{
+  "Situation" : {
+    "Given" : [
+      "Lives in San Francisco"
+    ],
+    "Extrapolated" : [
+      "Enjoys the urban lifestyle of San Francisco",
+      "Possibly working in a creative or tech industry",
+      "Appreciates the city's diverse culture and food scene"
+    ],
+    "Wild Guess" : [
+      "May be living in a small apartment or house in the city",
+      "May have a busy work schedule but makes time for her interests"
+    ]
+  },
+  "Interests" : {
+    "Given" : [
+      "Gardening",
+      "Cooking",
+      "Fashion",
+      "Reading",
+      "Tea"
+    ],
+    "Extrapolated" : [
+      "Enjoys creating a beautiful and functional space in her home",
+      "Appreciates the art of cooking and experimenting with different flavors",
+      "Keeps up with fashion trends and enjoys expressing her personal style",
+      "Finds joy in getting lost in a good book",
+      "Relaxes and unwinds with a cup of tea"
+    ],
+    "Wild Guess" : [
+      "May enjoy attending cooking classes or food festivals",
+      "May be interested in sustainable living and gardening techniques",
+      "May follow fashion blogs or magazines to stay updated on the latest trends",
+      "May belong to a book club or attend literary events",
+      "May have a collection of teacups and teapots"
+    ]
+  }
 },
